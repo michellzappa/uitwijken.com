@@ -35,7 +35,7 @@ export function DocsSidebar() {
                 className={`text-[11px] uppercase tracking-wider mb-2 ${
                   groupActive
                     ? "text-[var(--color-uitwijken)] font-semibold"
-                    : "text-[#6b6658]"
+                    : "text-[var(--color-secondary)]"
                 }`}
               >
                 {g.label}
@@ -63,7 +63,7 @@ export function DocsSidebar() {
             </div>
           );
         })}
-        <div className="mt-6 text-[11px] text-[#6b6658] leading-relaxed">
+        <div className="mt-6 text-[11px] text-[var(--color-secondary)] leading-relaxed">
           Concept, product proof, and delivery notes for the current prototype.
         </div>
       </div>

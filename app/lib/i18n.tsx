@@ -41,17 +41,17 @@ export function LangToggle() {
   const { lang, setLang } = useLanguage();
   const base = "px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase";
   return (
-    <div className="inline-flex rounded-full border border-[#d9d3c3] overflow-hidden bg-white">
+    <div className="inline-flex rounded-sm border border-[var(--color-rule)] overflow-hidden bg-white">
       <button
         onClick={() => setLang("nl")}
-        className={`${base} ${lang === "nl" ? "bg-[var(--color-ink)] text-white" : "text-[#6b6658]"}`}
+        className={`${base} ${lang === "nl" ? "bg-[var(--color-ink)] text-white" : "text-[var(--color-secondary)] hover:text-[var(--color-ink)]"}`}
         aria-pressed={lang === "nl"}
       >
         NL
       </button>
       <button
         onClick={() => setLang("en")}
-        className={`${base} ${lang === "en" ? "bg-[var(--color-ink)] text-white" : "text-[#6b6658]"}`}
+        className={`${base} ${lang === "en" ? "bg-[var(--color-ink)] text-white" : "text-[var(--color-secondary)] hover:text-[var(--color-ink)]"}`}
         aria-pressed={lang === "en"}
       >
         EN

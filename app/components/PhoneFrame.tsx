@@ -2,7 +2,7 @@ export function StatusBar({ title }: { title?: React.ReactNode }) {
   return (
     <div className="status-bar">
       <span>09:41</span>
-      <span className="text-[10px] uppercase tracking-widest text-[#6b6658]">{title ?? "uitwijken.nl"}</span>
+      <span className="text-[10px] uppercase tracking-widest text-[var(--color-secondary)]">{title ?? "uitwijken.nl"}</span>
       <span>􀛨 􀋨 􀋦</span>
     </div>
   );
@@ -25,7 +25,7 @@ export function PhoneFrame({
         <StatusBar title={title} />
         <div className="phone-scroll">{children}</div>
       </div>
-      {caption && <div className="text-xs uppercase tracking-wider text-[#6b6658] pl-1">{caption}</div>}
+      {caption && <div className="text-xs uppercase tracking-wider text-[var(--color-secondary)] pl-1">{caption}</div>}
       {annot && <div className="annot max-w-[380px] pl-1">{annot}</div>}
     </div>
   );
