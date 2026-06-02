@@ -1,7 +1,7 @@
 import { TopBar, PageHeader } from "../components/Nav";
 import { AppTopBar } from "../components/PhoneChrome";
 import { PhoneFrame } from "../components/PhoneFrame";
-import { CivicItem, MapSketch, MockRef, PrimitiveTag, ThemePill, WikiRef } from "../components/CivicUI";
+import { CivicItem, MapView, MockRef, PrimitiveTag, ThemePill, WikiRef } from "../components/CivicUI";
 import { T } from "../lib/i18n";
 
 function EventRow({
@@ -65,7 +65,7 @@ export default function EventsMock() {
           }
         >
           <AppTopBar left={<T nl="Kaart" en="Map" />} center={<T nl="Wat gebeurt er?" en="What's on?" />} right={<span>＋</span>} />
-          <MapSketch activeScale="buurt" compact />
+          <MapView activeScale="buurt" compact />
           <div className="px-4 py-3 border-b border-[var(--color-rule)] flex gap-2 overflow-x-auto">
             <ThemePill label={<T nl="Deze week" en="This week" />} active />
             <ThemePill label={<T nl="Zorg" en="Care" />} />

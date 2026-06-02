@@ -203,7 +203,22 @@ export function CivicItem({
   );
 }
 
-export function MapSketch({
+// Real Amsterdam base map: PDOK BRT Achtergrondkaart WMTS tiles (free, no-auth,
+// CC-BY © Kadaster — see wiki/Map-sources.md). A 2×2 z-tile mosaic centered on
+// Javaplein in the Indische Buurt, with zoom keyed to the selected scale.
+const MAP_VIEWS = {
+  street: { z: 17, x0: 67333, y0: 43078 },
+  buurt: { z: 16, x0: 33666, y0: 21539 },
+  city: { z: 14, x0: 8416, y0: 5384 },
+} as const;
+
+const SCOPE_INSET = { street: "inset-[30%]", buurt: "inset-[15%]", city: "inset-[5%]" } as const;
+
+function brtTile(z: number, x: number, y: number) {
+  return `https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/${z}/${x}/${y}.png`;
+}
+
+export function MapView({
   activeScale,
   compact,
 }: {
@@ -211,45 +226,51 @@ export function MapSketch({
   compact?: boolean;
 }) {
   const height = compact ? "h-56" : "h-[330px]";
+  const view = MAP_VIEWS[activeScale];
+  const tiles = [
+    [view.x0, view.y0],
+    [view.x0 + 1, view.y0],
+    [view.x0, view.y0 + 1],
+    [view.x0 + 1, view.y0 + 1],
+  ];
+
   return (
-    <div className={`relative ${height} overflow-hidden bg-[#f2ead8]`}>
-      <svg
-        viewBox="0 0 400 320"
-        className="absolute inset-0 h-full w-full"
-        role="img"
-        aria-label="Schematische kaart van de buurt rond Javaplein"
-      >
-        <rect width="400" height="320" fill="#f2ead8" />
-        <path d="M30 42 H370 M30 112 H370 M30 184 H370 M30 252 H370" stroke="#d8cfb9" strokeWidth="2" />
-        <path d="M72 18 V302 M154 18 V302 M244 18 V302 M326 18 V302" stroke="#d8cfb9" strokeWidth="2" />
-        <path d="M54 142 C118 102 182 120 244 84 C288 58 330 62 370 34" fill="none" stroke="#9bb6c9" strokeWidth="16" opacity="0.45" />
-        <rect x="142" y="118" width="104" height="74" rx="5" fill="#dfe6d5" />
-        <text x="194" y="158" textAnchor="middle" fontSize="10" fill="#33501e">Javaplein</text>
-        <path
-          d={
-            activeScale === "street"
-              ? "M120 106 H276 V202 H120 Z"
-              : activeScale === "buurt"
-                ? "M54 48 H348 V266 H54 Z"
-                : "M18 18 H382 V302 H18 Z"
-          }
-          fill="rgba(181,74,42,0.08)"
-          stroke="#b54a2a"
-          strokeWidth="2"
-          strokeDasharray="6 5"
-        />
-        <circle cx="178" cy="144" r="8" fill="#b54a2a" />
-        <circle cx="222" cy="180" r="8" fill="#1e5a8a" />
-        <circle cx="286" cy="92" r="8" fill="#4a6b3a" />
-        <circle cx="112" cy="224" r="8" fill="#1e5a8a" />
-      </svg>
+    <div className={`relative ${height} overflow-hidden bg-[#eef0ec]`}>
+      {/* 512×512 tile mosaic, centered on the map viewport */}
+      <div className="absolute left-1/2 top-1/2 grid h-[512px] w-[512px] -translate-x-1/2 -translate-y-1/2 grid-cols-2 grid-rows-2">
+        {tiles.map(([x, y]) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={`${x}-${y}`}
+            src={brtTile(view.z, x, y)}
+            alt=""
+            width={256}
+            height={256}
+            loading="lazy"
+            className="h-[256px] w-[256px] select-none"
+            draggable={false}
+          />
+        ))}
+      </div>
+
+      {/* Selected-scale boundary, drawn over the real map */}
+      <div
+        className={`pointer-events-none absolute ${SCOPE_INSET[activeScale]} rounded-sm border-2 border-dashed border-[var(--color-uitwijken)] bg-[rgba(181,74,42,0.06)]`}
+      />
+
+      {/* Mock civic pins — illustrative positions, not real coordinates */}
+      <span className="absolute left-[44%] top-[42%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[var(--color-uitwijken)] shadow" />
+      <span className="absolute left-[56%] top-[55%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[#1e5a8a] shadow" />
+      <span className="absolute left-[64%] top-[34%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[#4a6b3a] shadow" />
+      <span className="absolute left-[34%] top-[64%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[#1e5a8a] shadow" />
+
       <div className="absolute left-3 top-3 rounded-sm border border-[var(--color-rule)] bg-white/90 px-2 py-1 text-[10px] uppercase tracking-wider text-[var(--color-secondary)]">
         {activeScale === "street" && <T nl="Straat-scope" en="Street scope" />}
-        {activeScale === "buurt" && <T nl="Buurt-scope" en="Neighborhood scope" />}
+        {activeScale === "buurt" && <T nl="Buurt-scope · Indische Buurt" en="Neighborhood scope · Indische Buurt" />}
         {activeScale === "city" && <T nl="Stads-scope" en="City scope" />}
       </div>
-      <div className="absolute bottom-3 right-3 rounded-sm border border-[var(--color-rule)] bg-white/90 px-2 py-1 text-[10px] text-[var(--color-secondary)]">
-        OSM · data.amsterdam
+      <div className="absolute bottom-2 right-2 rounded-sm bg-white/85 px-1.5 py-0.5 text-[9px] text-[var(--color-secondary)]">
+        © Kadaster · PDOK BRT
       </div>
     </div>
   );

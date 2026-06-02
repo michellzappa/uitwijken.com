@@ -1,7 +1,7 @@
 import { TopBar, PageHeader } from "../components/Nav";
 import { AppTopBar } from "../components/PhoneChrome";
 import { PhoneFrame } from "../components/PhoneFrame";
-import { CivicItem, MapSketch, MockRef, ScaleRail, ThemePill, WikiRef } from "../components/CivicUI";
+import { CivicItem, MapView, MockRef, ScaleRail, ThemePill, WikiRef } from "../components/CivicUI";
 import { T } from "../lib/i18n";
 
 export default function MapLensMock() {
@@ -44,7 +44,7 @@ export default function MapLensMock() {
             <ThemePill label={<T nl="Jeugd" en="Youth" />} />
             <ThemePill label={<T nl="Events" en="Events" />} />
           </div>
-          <MapSketch activeScale="buurt" />
+          <MapView activeScale="buurt" />
           <div className="space-y-2 bg-[#fafaf7] px-4 py-4">
             <CivicItem
               role="government"

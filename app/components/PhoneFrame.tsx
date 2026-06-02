@@ -1,9 +1,15 @@
+import { BatteryFull, Signal, Wifi } from "lucide-react";
+
 export function StatusBar({ title }: { title?: React.ReactNode }) {
   return (
     <div className="status-bar">
       <span>09:41</span>
       <span className="text-[10px] uppercase tracking-widest text-[var(--color-secondary)]">{title ?? "uitwijken.nl"}</span>
-      <span>􀛨 􀋨 􀋦</span>
+      <span className="flex items-center gap-1 text-[var(--color-ink)]" aria-hidden="true">
+        <Signal className="w-3.5 h-3.5" />
+        <Wifi className="w-3.5 h-3.5" />
+        <BatteryFull className="w-4 h-4" />
+      </span>
     </div>
   );
 }
