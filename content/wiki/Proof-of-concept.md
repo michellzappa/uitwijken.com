@@ -36,4 +36,4 @@ Start with the map lens, because it shows the backbone immediately. Then move in
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

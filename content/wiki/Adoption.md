@@ -53,4 +53,4 @@ Early success should be measured by civic usefulness, not social-media growth:
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

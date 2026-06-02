@@ -2,6 +2,8 @@
 
 These are the primitives the proof-of-concept must make visible.
 
+> The objects a person actually *creates* — event, conversation, ask/offer, survey — are the closed set described in [[Building-blocks]]. This page covers the surrounding model (geography, themes, roles, inbox) that those blocks live inside.
+
 ## Cascading Geography
 
 Uitwijken.nl is built around a dynamic location model, not a flat group model. A user should be able to move naturally between:
@@ -93,4 +95,4 @@ Uitwijken.nl needs both, and the interface should make the difference legible.
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

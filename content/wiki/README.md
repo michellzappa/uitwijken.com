@@ -26,8 +26,9 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | File | What it holds |
 |---|---|
 | [[Vision]] | The thesis: society-owned, location-plus-theme, physical-world community |
-| [[Concepts]] | Core product primitives: cascading geography, themes, roles, questionnaires, events, action loops |
-| [[Governance]] | Ownership, formal/informal communities, moderation boards, and the three-role build model |
+| [[Concepts]] | Surrounding model: cascading geography, themes, roles, inbox, action loops |
+| [[Building-blocks]] | The closed set of objects people create: event, conversation, ask/offer, survey |
+| [[Governance]] | Ownership, design principles, formal/informal communities, moderation, three-role build model |
 
 ### Product Proof
 
@@ -36,6 +37,13 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | [[Proof-of-concept]] | The six wireframes needed to make the idea concrete |
 | [[Open-data]] | Amsterdam data sources and how they become map layers, plans, events, and civic prompts |
 | [[Adoption]] | Events as the bootstrap hook, questionnaires as the participation hook |
+
+### Data & Research
+
+| File | What it holds |
+|---|---|
+| [[Event-sources]] | Living inventory of geotagged event APIs, feeds, and scrape targets — with the current working priority |
+| [[Research-log]] | Append-only record of research dives and the decisions they produced |
 
 ### Delivery
 
@@ -50,4 +58,4 @@ Uitwijken.nl is a public-interest, open-source, society-owned social platform th
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

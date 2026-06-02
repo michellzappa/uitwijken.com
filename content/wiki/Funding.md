@@ -43,4 +43,4 @@ That is a stronger funding story because it aligns with public responsibility ra
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

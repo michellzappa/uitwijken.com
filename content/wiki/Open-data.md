@@ -2,6 +2,8 @@
 
 Amsterdam's open data is one reason the city is the right first geography. Uitwijken.nl can use public data to make the map useful before there is much user-generated activity.
 
+This page holds the **principles** — why open data matters and how it maps to product behavior. Concrete inventories of specific sources live in their own pages: [[Event-sources]] for geotagged events. New inventories should follow the same pattern and be logged in [[Research-log]].
+
 ## Data As Civic Backbone
 
 Open data should become product behavior:
@@ -42,6 +44,14 @@ AI can help cluster content into themes, identify related subjects, map synonyms
 
 Example: a resident post about loneliness, a municipal health plan, a library event, and an entrepreneur's room offer might all connect to the broader theme of care in the neighborhood.
 
+## Concrete inventories
+
+| Page | Scope |
+|---|---|
+| [[Event-sources]] | Geotagged event data: Datapunt, Ticketmaster, Luma, Meetup, venue scraping, Facebook status |
+| [[Map-sources]] | Cartography & geometry: base tiles, buurt/wijk boundaries, BAG addresses, BGT, geocoding |
+| [[Research-log]] | Dated record of how each inventory was built and what we decided |
+
 ## First Spike
 
 For the proof-of-concept, use plausible or mocked Amsterdam data to demonstrate:
@@ -57,4 +67,4 @@ The prototype does not need perfect live integration. It needs to show why integ
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

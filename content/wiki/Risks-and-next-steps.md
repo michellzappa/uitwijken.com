@@ -47,4 +47,4 @@ One grant can fund a demo, but not the civic layer. The funding model must be pa
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam

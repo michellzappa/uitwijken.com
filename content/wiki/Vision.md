@@ -67,4 +67,4 @@ This likely means an association, foundation, cooperative, or hybrid civic stewa
 
 ## Tags
 
-#year/2026 #env/pitch #city/amsterdam
+#year/2026 #city/amsterdam
