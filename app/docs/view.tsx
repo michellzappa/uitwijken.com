@@ -61,6 +61,14 @@ export function DocView({ title, body }: { title: string; body: string }) {
           td: ({ children }) => (
             <td className="border-b border-[var(--color-rule)] px-3 py-2 align-top">{children}</td>
           ),
+          img: ({ src, alt }) => (
+            <img
+              src={typeof src === "string" ? src : undefined}
+              alt={alt ?? ""}
+              loading="lazy"
+              className="my-2 inline-block max-w-full rounded-md border border-[var(--color-rule)] align-top"
+            />
+          ),
           code: ({ children }) => (
             <code className="rounded-sm bg-[#f1efe8] px-1.5 py-0.5 font-mono text-[13px]">
               {children}

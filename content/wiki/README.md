@@ -29,6 +29,7 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | [[Concepts]] | Surrounding model: cascading geography, themes, roles, inbox, action loops |
 | [[Building-blocks]] | The closed set of objects people create: event, conversation, ask/offer, survey |
 | [[Governance]] | Ownership, design principles, formal/informal communities, moderation, three-role build model |
+| [[Naming]] | Settled product name vs. the still-open descriptor — working the "what do we call it?" question from first principles |
 
 ### Product Proof
 
@@ -43,6 +44,8 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | File | What it holds |
 |---|---|
 | [[Event-sources]] | Living inventory of geotagged event APIs, feeds, and scrape targets — with the current working priority |
+| [[Map-sources]] | Living inventory of the base tiles, boundaries, and address/building geometry behind the map |
+| [[Precedents]] | Similar civic-infrastructure initiatives elsewhere — Decidim and others — and what each one proves |
 | [[Research-log]] | Append-only record of research dives and the decisions they produced |
 
 ### Delivery
@@ -51,6 +54,15 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 |---|---|
 | [[Funding]] | How a society-owned platform can still fund a serious team |
 | [[Risks-and-next-steps]] | What must be proven now and next actions |
+
+### Process & Record
+
+| File | What it holds |
+|---|---|
+| [[History]] | How the project's framing has shifted over time, and why the wiki says what it now says |
+| [[Meeting-2026-06-01]] | Latest briefing with Roy Bekhuis — events discovery, services, public-only interactions |
+| [[Meeting-2026-05-22]] | Briefing that widened scope from a buurt network to a location × theme civic layer |
+| [[Meeting-2026-04-16]] | Kickoff: the original buurt-scoped, fediverse-native vision |
 
 ## One-sentence pitch
 

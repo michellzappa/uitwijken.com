@@ -20,6 +20,25 @@ A buurt-scale civic map can be built end-to-end on open data with no commercial 
 
 Rationale: prefer national basisregistraties (stable, authoritative, openly licensed) for the foundation; use Amsterdam's own services where the city's indeling or freshness beats the national mirror.
 
+## What the layers look like
+
+Live previews pulled straight from the open services — same central-Amsterdam location across the base-map styles. These are hotlinked from PDOK (no captured screenshots); if they ever fail to load it's a transient service issue, not a broken inventory.
+
+**BRT-A base-map styles** (standaard · grijs · pastel · water):
+
+![BRT-A standaard style](https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/14/8424/5405.png)
+![BRT-A grijs style](https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/14/8424/5405.png)
+![BRT-A pastel style](https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/pastel/EPSG:3857/14/8424/5405.png)
+![BRT-A water style](https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/water/EPSG:3857/14/8424/5405.png)
+
+**CBS buurt boundaries** (WMS render over central Amsterdam):
+
+![CBS buurt boundary polygons over Amsterdam](https://service.pdok.nl/cbs/wijkenbuurten/2025/wms/v1_0?service=WMS&version=1.3.0&request=GetMap&layers=buurten&crs=EPSG:28992&bbox=116000,485000,123000,490000&width=700&height=500&format=image/png&styles=)
+
+**BAG building footprints** (WMS render, centrum):
+
+![BAG pand building footprints](https://service.pdok.nl/lv/bag/wms/v2_0?service=WMS&version=1.3.0&request=GetMap&layers=pand&crs=EPSG:28992&bbox=121000,487000,121800,487600&width=700&height=500&format=image/png&styles=)
+
 ## Base map tiles — the canvas
 
 | Source | URL | Type | Auth | License | Notes |
