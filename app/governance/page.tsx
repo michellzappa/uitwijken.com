@@ -1,5 +1,5 @@
 import { TopBar, PageHeader } from "../components/Nav";
-import { RoleTag } from "../components/CivicUI";
+import { RoleTag, WikiRef } from "../components/CivicUI";
 import { T } from "../lib/i18n";
 
 function RoleColumn({
@@ -12,12 +12,12 @@ function RoleColumn({
   items: React.ReactNode[];
 }) {
   return (
-    <div className="rounded-lg border border-[#e6e2d6] bg-white p-5">
+    <div className="rounded-lg border border-[var(--color-rule)] bg-white p-5">
       <RoleTag role={role} />
       <h2 className="mt-3 font-serif italic text-[24px] leading-tight">{title}</h2>
-      <ul className="mt-4 space-y-2 text-[13px] leading-relaxed text-[#3b3a35]">
+      <ul className="mt-4 space-y-2 text-[13px] leading-relaxed text-[#2a2926]">
         {items.map((item, index) => (
-          <li key={index} className="border-t border-dashed border-[#e6e2d6] pt-2 first:border-t-0 first:pt-0">
+          <li key={index} className="border-t border-[var(--color-rule)] pt-2 first:border-t-0 first:pt-0">
             {item}
           </li>
         ))}
@@ -34,9 +34,9 @@ function GovernanceCard({
   body: React.ReactNode;
 }) {
   return (
-    <div className="rounded-lg border border-[#e6e2d6] bg-white p-5">
+    <div className="rounded-lg border border-[var(--color-rule)] bg-white p-5">
       <h3 className="font-serif italic text-[22px] leading-tight">{title}</h3>
-      <p className="mt-3 text-[13.5px] leading-relaxed text-[#3b3a35]">{body}</p>
+      <p className="mt-3 text-[13.5px] leading-relaxed text-[#2a2926]">{body}</p>
     </div>
   );
 }
@@ -55,6 +55,10 @@ export default function GovernanceMock() {
           />
         }
       />
+
+      <div className="max-w-6xl mx-auto px-6 -mt-4 pb-6">
+        <WikiRef slug="governance" label={<T nl="Governance-model" en="Governance model" />} />
+      </div>
 
       <div className="max-w-6xl mx-auto px-6 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -124,6 +128,51 @@ export default function GovernanceMock() {
               />
             }
           />
+        </div>
+
+        {/* Design principles decided in conversation — public-only, pseudonymous, residence-gated */}
+        <div className="mt-12 border-t border-[var(--color-rule)] pt-8">
+          <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-uitwijken)] font-semibold mb-2">
+            <T nl="Ontwerpprincipes vanaf dag één" en="Design principles from day one" />
+          </div>
+          <h2 className="font-sans font-bold text-2xl tracking-tight leading-snug mb-2">
+            <T nl="Drie keuzes die misbruik vóór zijn" en="Three choices that pre-empt misuse" />
+          </h2>
+          <p className="max-w-2xl text-[15px] text-[#2a2926] leading-relaxed mb-6">
+            <T
+              nl="Deze zijn geen detail voor later. Ze bepalen de aard van het platform en maken moderatie behapbaar — juist omdat er twintig jaar online-community-ervaring achter zit."
+              en="These are not details for later. They set the nature of the platform and keep moderation tractable — precisely because twenty years of online-community experience sit behind them."
+            />
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <GovernanceCard
+              title={<T nl="Alles openbaar" en="Everything public" />}
+              body={
+                <T
+                  nl="Geen privéberichten, geen besloten groepen. Wat hier gebeurt is publiek van aard. Dat voorkomt misbruik in de schaduw en houdt het platform aanspreekbaar — je kunt niet stiekem iets organiseren wat het daglicht niet verdraagt."
+                  en="No private messages, no closed groups. What happens here is public by nature. That prevents misuse in the shadows and keeps the platform accountable — you cannot quietly organize something that can't bear daylight."
+                />
+              }
+            />
+            <GovernanceCard
+              title={<T nl="Geverifieerd, maar pseudoniem" en="Verified, but pseudonymous" />}
+              body={
+                <T
+                  nl="Inloggen bewijst dat je een echte bewoner bent (bijv. via DigiD), maar je kiest zelf onder welke naam je verschijnt. Eén echt mens achter elk account, zonder gedwongen blootstelling van je volledige naam."
+                  en="Signing in proves you are a real resident (e.g. via DigiD), but you choose the name you appear under. One real human behind each account, without forced exposure of your full name."
+                />
+              }
+            />
+            <GovernanceCard
+              title={<T nl="Stemrecht volgt verblijf" en="Voting follows residence" />}
+              body={
+                <T
+                  nl="Wie aantoont dat hij hier woont, mag meebeslissen over die plek — een buurtbudget, een plan, een prioriteit. Verblijf bepaalt stemrecht per schaal, los van wie er meeleest."
+                  en="Whoever proves they live here may help decide about that place — a neighborhood budget, a plan, a priority. Residence sets voting rights per scale, separate from who can read along."
+                />
+              }
+            />
+          </div>
         </div>
       </div>
     </div>

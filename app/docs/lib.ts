@@ -62,12 +62,22 @@ const KNOWN_SLUGS = new Set([
   "readme",
   "vision",
   "concepts",
+  "building-blocks",
+  "naming",
   "proof-of-concept",
   "funding",
   "adoption",
   "risks-and-next-steps",
   "open-data",
   "governance",
+  "history",
+  "meeting-2026-04-16",
+  "meeting-2026-05-22",
+  "meeting-2026-06-01",
+  "event-sources",
+  "map-sources",
+  "precedents",
+  "research-log",
 ]);
 
 export { DOC_GROUPS, type DocGroup } from "./doc-groups";

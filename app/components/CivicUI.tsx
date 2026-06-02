@@ -1,12 +1,78 @@
+import Link from "next/link";
 import { T } from "../lib/i18n";
 
 export type CivicRole = "resident" | "government" | "entrepreneur";
+
+export function WikiRef({
+  slug,
+  label,
+}: {
+  slug: string;
+  label: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={`/docs/${slug}`}
+      className="inline-flex items-center gap-1.5 rounded-sm border border-[var(--color-rule)] bg-white px-2 py-1 text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-secondary)] hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
+    >
+      <span className="font-bold text-[var(--color-uitwijken)]">¶</span>
+      <span className="font-semibold">{label}</span>
+      <span aria-hidden="true">→</span>
+    </Link>
+  );
+}
+
+export function MockRef({
+  href,
+  label,
+}: {
+  href: string;
+  label: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex items-center gap-1.5 rounded-sm border border-[var(--color-rule)] bg-white px-2 py-1 text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-secondary)] hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
+    >
+      <span className="font-bold text-[var(--color-link)]">◇</span>
+      <span className="font-semibold">{label}</span>
+      <span aria-hidden="true">→</span>
+    </Link>
+  );
+}
 
 const roleClass: Record<CivicRole, string> = {
   resident: "bg-[var(--color-uitwijken-soft)] text-[#7a3418]",
   government: "bg-[var(--color-civic-soft)] text-[#164a72]",
   entrepreneur: "bg-[#dfe6d5] text-[#33501e]",
 };
+
+/**
+ * The four building blocks — the closed set of objects a user can create.
+ * Roles answer "who"; primitives answer "what kind of object". Every civic
+ * item on every screen carries both, so the vocabulary stays legible.
+ */
+export type PrimitiveKind = "event" | "thread" | "survey" | "ask";
+
+export const PRIMITIVE_META: Record<
+  PrimitiveKind,
+  { glyph: string; href: string; nl: string; en: string }
+> = {
+  event: { glyph: "◷", href: "/events", nl: "Event", en: "Event" },
+  thread: { glyph: "❝", href: "/threads", nl: "Gesprek", en: "Thread" },
+  survey: { glyph: "▥", href: "/vragen", nl: "Enquête", en: "Survey" },
+  ask: { glyph: "⇄", href: "/asks", nl: "Vraag & aanbod", en: "Ask / offer" },
+};
+
+export function PrimitiveTag({ kind }: { kind: PrimitiveKind }) {
+  const m = PRIMITIVE_META[kind];
+  return (
+    <span className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-rule)] bg-[#fafaf7] px-1.5 py-0.5 text-[9.5px] font-semibold uppercase tracking-[0.1em] text-[var(--color-secondary)]">
+      <span className="text-[11px] leading-none text-[var(--color-uitwijken)]">{m.glyph}</span>
+      <T nl={m.nl} en={m.en} />
+    </span>
+  );
+}
 
 export function RoleTag({ role }: { role: CivicRole }) {
   const label = {
@@ -15,7 +81,7 @@ export function RoleTag({ role }: { role: CivicRole }) {
     entrepreneur: <T nl="Ondernemer" en="Entrepreneur" />,
   }[role];
   return (
-    <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] uppercase tracking-widest ${roleClass[role]}`}>
+    <span className={`inline-flex rounded-sm px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${roleClass[role]}`}>
       {label}
     </span>
   );
@@ -30,10 +96,10 @@ export function ThemePill({
 }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-[11px] ${
+      className={`inline-flex items-center rounded-sm border px-3 py-1 text-[11px] ${
         active
-          ? "border-[var(--color-uitwijken)] bg-[var(--color-uitwijken-soft)]/60 text-[#7a3418] font-semibold"
-          : "border-[#e6e2d6] bg-white text-[#6b6658]"
+          ? "border-[var(--color-ink)] bg-[var(--color-uitwijken-soft)]/60 text-[#7a3418] font-semibold"
+          : "border-[var(--color-rule)] bg-white text-[var(--color-secondary)]"
       }`}
     >
       {label}
@@ -50,15 +116,15 @@ export function ScaleRail({ active }: { active: "house" | "street" | "buurt" | "
   ] as const;
 
   return (
-    <div className="px-4 py-3 border-b border-[#ececec]">
+    <div className="px-4 py-3 border-b border-[var(--color-rule)]">
       <div className="flex items-center gap-2">
         {scales.map((scale, index) => (
           <div key={scale.key} className="flex items-center gap-2 flex-1">
             <div
-              className={`w-full rounded-full px-2 py-1 text-center text-[10px] uppercase tracking-wider ${
+              className={`w-full rounded-sm px-2 py-1 text-center text-[10px] font-semibold uppercase tracking-[0.14em] ${
                 active === scale.key
                   ? "bg-[var(--color-ink)] text-white"
-                  : "bg-[#efece4] text-[#6b6658]"
+                  : "bg-[#f1efe8] text-[var(--color-secondary)]"
               }`}
             >
               <T nl={scale.nl} en={scale.en} />
@@ -73,22 +139,27 @@ export function ScaleRail({ active }: { active: "house" | "street" | "buurt" | "
 
 export function CivicItem({
   role,
+  kind,
   title,
   meta,
   body,
 }: {
   role: CivicRole;
+  kind?: PrimitiveKind;
   title: React.ReactNode;
   meta: React.ReactNode;
   body?: React.ReactNode;
 }) {
   return (
-    <div className="rounded-lg border border-[#e6e2d6] bg-white p-3">
+    <div className="rounded-sm border border-[var(--color-rule)] bg-white p-3">
       <div className="flex items-start justify-between gap-3">
         <div className="font-semibold text-[13px] leading-snug">{title}</div>
         <RoleTag role={role} />
       </div>
-      <div className="mt-1 text-[11px] text-[#6b6658]">{meta}</div>
+      <div className="mt-1.5 flex flex-wrap items-center gap-2">
+        {kind && <PrimitiveTag kind={kind} />}
+        <span className="text-[11px] text-[var(--color-secondary)]">{meta}</span>
+      </div>
       {body && <div className="mt-2 text-[12.5px] leading-relaxed text-[#23251f]">{body}</div>}
     </div>
   );
@@ -129,12 +200,12 @@ export function MapSketch({
         <circle cx="286" cy="92" r="8" fill="#4a6b3a" />
         <circle cx="112" cy="224" r="8" fill="#1e5a8a" />
       </svg>
-      <div className="absolute left-3 top-3 rounded-md border border-[#e6e2d6] bg-white/90 px-2 py-1 text-[10px] uppercase tracking-wider text-[#6b6658]">
+      <div className="absolute left-3 top-3 rounded-sm border border-[var(--color-rule)] bg-white/90 px-2 py-1 text-[10px] uppercase tracking-wider text-[var(--color-secondary)]">
         {activeScale === "street" && <T nl="Straat-scope" en="Street scope" />}
         {activeScale === "buurt" && <T nl="Buurt-scope" en="Neighborhood scope" />}
         {activeScale === "city" && <T nl="Stads-scope" en="City scope" />}
       </div>
-      <div className="absolute bottom-3 right-3 rounded-md border border-[#e6e2d6] bg-white/90 px-2 py-1 text-[10px] text-[#6b6658]">
+      <div className="absolute bottom-3 right-3 rounded-sm border border-[var(--color-rule)] bg-white/90 px-2 py-1 text-[10px] text-[var(--color-secondary)]">
         OSM · data.amsterdam
       </div>
     </div>

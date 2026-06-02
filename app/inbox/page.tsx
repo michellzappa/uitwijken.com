@@ -1,25 +1,31 @@
 import { TopBar, PageHeader } from "../components/Nav";
 import { AppTopBar } from "../components/PhoneChrome";
 import { PhoneFrame } from "../components/PhoneFrame";
-import { CivicItem, ThemePill } from "../components/CivicUI";
+import { CivicItem, MockRef, PrimitiveTag, ThemePill, WikiRef } from "../components/CivicUI";
+import type { PrimitiveKind } from "../components/CivicUI";
 import { T } from "../lib/i18n";
 
 function InboxItem({
   source,
+  kind,
   title,
   meta,
   action,
 }: {
   source: React.ReactNode;
+  kind?: PrimitiveKind;
   title: React.ReactNode;
   meta: React.ReactNode;
   action: React.ReactNode;
 }) {
   return (
-    <div className="rounded-lg border border-[#e6e2d6] bg-white p-3">
-      <div className="text-[10px] uppercase tracking-widest text-[var(--color-civic)]">{source}</div>
+    <div className="rounded-lg border border-[var(--color-rule)] bg-white p-3">
+      <div className="flex items-center justify-between gap-2">
+        <div className="text-[10px] uppercase tracking-widest text-[var(--color-civic)]">{source}</div>
+        {kind && <PrimitiveTag kind={kind} />}
+      </div>
       <div className="mt-1 font-semibold text-[13px] leading-snug">{title}</div>
-      <div className="mt-1 text-[11px] text-[#6b6658]">{meta}</div>
+      <div className="mt-1 text-[11px] text-[var(--color-secondary)]">{meta}</div>
       <button className="mt-3 text-[12px] font-semibold text-[var(--color-civic)] underline underline-offset-2">
         {action} →
       </button>
@@ -42,6 +48,12 @@ export default function InboxMock() {
         }
       />
 
+      <div className="max-w-6xl mx-auto px-6 -mt-4 pb-6 flex flex-wrap gap-2">
+        <WikiRef slug="open-data" label={<T nl="Open data-bronnen" en="Open data sources" />} />
+        <MockRef href="/events" label={<T nl="Events" en="Events" />} />
+        <MockRef href="/vragen" label={<T nl="Enquêtes" en="Surveys" />} />
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 pb-16 flex gap-10 flex-wrap">
         <PhoneFrame
           title={<T nl="Inbox" en="Inbox" />}
@@ -54,8 +66,8 @@ export default function InboxMock() {
           }
         >
           <AppTopBar left={<T nl="Filters" en="Filters" />} center={<T nl="Civic inbox" en="Civic inbox" />} right={<span>✓</span>} />
-          <div className="px-4 py-3 border-b border-[#ececec]">
-            <div className="text-[10px] uppercase tracking-widest text-[#6b6658] mb-2">
+          <div className="px-4 py-3 border-b border-[var(--color-rule)]">
+            <div className="text-[10px] uppercase tracking-widest text-[var(--color-secondary)] mb-2">
               <T nl="Je volgt" en="You follow" />
             </div>
             <div className="flex flex-wrap gap-2">
@@ -74,21 +86,31 @@ export default function InboxMock() {
             />
             <InboxItem
               source={<T nl="Stadsdeel Oost" en="Oost district" />}
+              kind="survey"
               title={<T nl="Conceptplan herinrichting Javaplein gepubliceerd" en="Draft plan for Javaplein redesign published" />}
               meta={<T nl="Openbare ruimte · feedback gevraagd" en="Public space · feedback requested" />}
               action={<T nl="Geef feedback" en="Give feedback" />}
             />
             <InboxItem
               source={<T nl="Evenementen" en="Events" />}
+              kind="event"
               title={<T nl="Zorg-inloop in buurthuis past bij jouw thema" en="Care walk-in at community center matches your theme" />}
               meta={<T nl="Vrijdag · 9 minuten lopen" en="Friday · 9 min walk" />}
               action={<T nl="Zet in agenda" en="Add to calendar" />}
             />
             <InboxItem
               source={<T nl="Buurtvraag" en="Area question" />}
+              kind="survey"
               title={<T nl="Budgetvraag bijna quorum in jouw buurt" en="Budget question nearly reaches quorum in your neighborhood" />}
               meta={<T nl="216 reacties nodig · sluit vrijdag" en="216 responses needed · closes Friday" />}
               action={<T nl="Beantwoord" en="Answer" />}
+            />
+            <InboxItem
+              source={<T nl="Vraag & aanbod" en="Asks & offers" />}
+              kind="ask"
+              title={<T nl="Buur zoekt hulp met boodschappen in jouw straat" en="A neighbor needs help with groceries on your street" />}
+              meta={<T nl="Balistraat · zorg · 30 min per week" en="Balistraat · care · 30 min a week" />}
+              action={<T nl="Ik help" en="I'll help" />}
             />
           </div>
         </PhoneFrame>
@@ -97,10 +119,10 @@ export default function InboxMock() {
           <div className="text-xs uppercase tracking-widest text-[var(--color-uitwijken)] mb-3">
             <T nl="Publieke relevantie" en="Public relevance" />
           </div>
-          <h2 className="font-serif italic text-3xl leading-tight mb-4">
+          <h2 className="font-sans font-bold text-3xl tracking-tight leading-[1.15] mb-4">
             <T nl="Geen For You-feed, maar een civic inbox." en="Not a For You feed, but a civic inbox." />
           </h2>
-          <p className="text-[15px] leading-relaxed text-[#3b3a35] mb-4">
+          <p className="text-[15px] leading-relaxed text-[#2a2926] mb-4">
             <T
               nl="De gebruiker controleert wat zichtbaar wordt door locaties en thema's te volgen. De stad kan informatie beter brengen, maar niet commercieel sturen."
               en="The user controls what appears by following locations and themes. The city can communicate better, but not commercially steer attention."
