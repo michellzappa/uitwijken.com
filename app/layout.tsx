@@ -22,7 +22,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans min-h-screen flex flex-col">
         <LanguageProvider>
-          <div className="flex-1">{children}</div>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 focus:bg-white focus:px-4 focus:py-2 focus:border focus:border-[var(--color-ink)] focus:font-semibold"
+          >
+            Direct naar de inhoud
+          </a>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
         </LanguageProvider>
       </body>

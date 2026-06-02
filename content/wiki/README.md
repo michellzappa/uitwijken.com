@@ -14,7 +14,7 @@ This folder captures the current concept as a **location-and-theme civic operati
 
 - Location cascades from house to street to buurt to city and beyond.
 - Themes organize public life across healthcare, safety, youth, events, services, budgets, planning, and local initiatives.
-- Three roles participate: residents, government, and entrepreneurs.
+- Three roles participate: `@resident`, `@government`, and `@entrepreneur`.
 - The platform turns scattered civic information into structured decisions, events, questionnaires, and action.
 
 The immediate goal is a proof-of-concept convincing enough for a conversation with Amsterdam innovation leadership.

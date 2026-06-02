@@ -10,7 +10,7 @@ Start with what survives if every UI choice is removed:
 
 - A **shared index** of local public life — events, plans, permits, questionnaires, services, initiatives.
 - Organized by two axes: **location** (house → street → buurt → city → country) and **theme** (health, safety, youth, public space, budgets, …).
-- Three participating **roles**: residents, government, entrepreneurs — visible as distinct civic objects, not flattened into "posts".
+- Three participating **roles**: `@resident`, `@government`, `@entrepreneur` — visible as distinct civic objects, not flattened into "posts".
 - **Society-owned**: not a government portal, not a company platform.
 - Aimed at moving digital coordination into **physical community life**, not at maximizing attention.
 

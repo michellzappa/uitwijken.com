@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { RoleTag, ROLE_META, type CivicRole } from "../components/CivicUI";
 
 export function DocView({ title, body }: { title: string; body: string }) {
   return (
@@ -69,11 +70,20 @@ export function DocView({ title, body }: { title: string; body: string }) {
               className="my-2 inline-block max-w-full rounded-md border border-[var(--color-rule)] align-top"
             />
           ),
-          code: ({ children }) => (
-            <code className="rounded-sm bg-[#f1efe8] px-1.5 py-0.5 font-mono text-[13px]">
-              {children}
-            </code>
-          ),
+          code: ({ children }) => {
+            // `@resident` / `@government` / `@entrepreneur` render as the shared
+            // role pill, so the wiki and the app speak the same visual language.
+            const text = typeof children === "string" ? children : "";
+            const m = /^@(\w+)$/.exec(text);
+            if (m && m[1] in ROLE_META) {
+              return <RoleTag role={m[1] as CivicRole} />;
+            }
+            return (
+              <code className="rounded-sm bg-[#f1efe8] px-1.5 py-0.5 font-mono text-[13px]">
+                {children}
+              </code>
+            );
+          },
           pre: ({ children }) => (
             <pre className="my-4 overflow-x-auto rounded-sm border border-[var(--color-rule-soft)] bg-[#f1efe8] p-4 text-[13px]">
               {children}

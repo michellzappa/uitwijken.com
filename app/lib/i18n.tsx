@@ -14,7 +14,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("uitwijken-lang") as Lang | null;
-      if (stored === "nl" || stored === "en") setLangState(stored);
+      if (stored === "nl" || stored === "en") {
+        setLangState(stored);
+        document.documentElement.lang = stored;
+      }
     } catch {}
   }, []);
   const setLang = (l: Lang) => {

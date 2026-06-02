@@ -15,7 +15,7 @@ The discipline is to keep the set **small**. Like the metro or the trams, the pl
 | **Ask / offer** | A request or an offer of practical help, or an invitation to do something together | Groceries for a neighbor, DIY help, "who's up for D&D?" |
 | **Survey** | A structured question tied to a place, theme, and consequence | A €300k neighborhood-budget prioritization |
 
-Each block answers two questions at a glance: **who** posted it (resident, government, entrepreneur — the role) and **what kind** of object it is (the block). Roles and blocks are orthogonal; the UI shows both on every item so the vocabulary stays legible.
+Each block answers two questions at a glance: **who** posted it (`@resident`, `@government`, `@entrepreneur` — the role) and **what kind** of object it is (the block). Roles and blocks are orthogonal; the UI shows both on every item so the vocabulary stays legible.
 
 ## How they combine
 

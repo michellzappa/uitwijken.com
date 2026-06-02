@@ -1,4 +1,18 @@
 import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarClock,
+  ChevronRight,
+  ClipboardList,
+  Handshake,
+  House,
+  Landmark,
+  LayoutTemplate,
+  MessageSquare,
+  Store,
+  type LucideIcon,
+} from "lucide-react";
 import { T } from "../lib/i18n";
 
 export type CivicRole = "resident" | "government" | "entrepreneur";
@@ -15,9 +29,9 @@ export function WikiRef({
       href={`/docs/${slug}`}
       className="inline-flex items-center gap-1.5 rounded-sm border border-[var(--color-rule)] bg-white px-2 py-1 text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-secondary)] hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
     >
-      <span className="font-bold text-[var(--color-uitwijken)]">¶</span>
+      <BookOpen className="w-3.5 h-3.5 text-[var(--color-uitwijken)]" aria-hidden="true" />
       <span className="font-semibold">{label}</span>
-      <span aria-hidden="true">→</span>
+      <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
     </Link>
   );
 }
@@ -34,17 +48,42 @@ export function MockRef({
       href={href}
       className="inline-flex items-center gap-1.5 rounded-sm border border-[var(--color-rule)] bg-white px-2 py-1 text-[10.5px] uppercase tracking-[0.14em] text-[var(--color-secondary)] hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
     >
-      <span className="font-bold text-[var(--color-link)]">◇</span>
+      <LayoutTemplate className="w-3.5 h-3.5 text-[var(--color-link)]" aria-hidden="true" />
       <span className="font-semibold">{label}</span>
-      <span aria-hidden="true">→</span>
+      <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
     </Link>
   );
 }
 
-const roleClass: Record<CivicRole, string> = {
-  resident: "bg-[var(--color-uitwijken-soft)] text-[#7a3418]",
-  government: "bg-[var(--color-civic-soft)] text-[#164a72]",
-  entrepreneur: "bg-[#dfe6d5] text-[#33501e]",
+/**
+ * The three roles — the "who" behind every civic item. Each carries an icon so
+ * a reader can recognise the perspective at a glance (resident = house/lives
+ * here, government = landmark/sets the rules, entrepreneur = store/offers value).
+ * This is the single source of truth shared by the app and the wiki, so the
+ * pills stay identical everywhere.
+ */
+export const ROLE_META: Record<
+  CivicRole,
+  { Icon: LucideIcon; nl: string; en: string; cls: string }
+> = {
+  resident: {
+    Icon: House,
+    nl: "Bewoner",
+    en: "Resident",
+    cls: "bg-[var(--color-uitwijken-soft)] text-[#7a3418]",
+  },
+  government: {
+    Icon: Landmark,
+    nl: "Overheid",
+    en: "Government",
+    cls: "bg-[var(--color-civic-soft)] text-[#164a72]",
+  },
+  entrepreneur: {
+    Icon: Store,
+    nl: "Ondernemer",
+    en: "Entrepreneur",
+    cls: "bg-[#dfe6d5] text-[#33501e]",
+  },
 };
 
 /**
@@ -56,33 +95,30 @@ export type PrimitiveKind = "event" | "thread" | "survey" | "ask";
 
 export const PRIMITIVE_META: Record<
   PrimitiveKind,
-  { glyph: string; href: string; nl: string; en: string }
+  { Icon: LucideIcon; href: string; nl: string; en: string }
 > = {
-  event: { glyph: "◷", href: "/events", nl: "Event", en: "Event" },
-  thread: { glyph: "❝", href: "/threads", nl: "Gesprek", en: "Thread" },
-  survey: { glyph: "▥", href: "/vragen", nl: "Enquête", en: "Survey" },
-  ask: { glyph: "⇄", href: "/asks", nl: "Vraag & aanbod", en: "Ask / offer" },
+  event: { Icon: CalendarClock, href: "/events", nl: "Event", en: "Event" },
+  thread: { Icon: MessageSquare, href: "/threads", nl: "Gesprek", en: "Thread" },
+  survey: { Icon: ClipboardList, href: "/vragen", nl: "Enquête", en: "Survey" },
+  ask: { Icon: Handshake, href: "/asks", nl: "Vraag & aanbod", en: "Ask / offer" },
 };
 
 export function PrimitiveTag({ kind }: { kind: PrimitiveKind }) {
   const m = PRIMITIVE_META[kind];
   return (
     <span className="inline-flex items-center gap-1 rounded-sm border border-[var(--color-rule)] bg-[#fafaf7] px-1.5 py-0.5 text-[9.5px] font-semibold uppercase tracking-[0.1em] text-[var(--color-secondary)]">
-      <span className="text-[11px] leading-none text-[var(--color-uitwijken)]">{m.glyph}</span>
+      <m.Icon className="w-3 h-3 text-[var(--color-uitwijken)]" aria-hidden="true" />
       <T nl={m.nl} en={m.en} />
     </span>
   );
 }
 
 export function RoleTag({ role }: { role: CivicRole }) {
-  const label = {
-    resident: <T nl="Bewoner" en="Resident" />,
-    government: <T nl="Overheid" en="Government" />,
-    entrepreneur: <T nl="Ondernemer" en="Entrepreneur" />,
-  }[role];
+  const m = ROLE_META[role];
   return (
-    <span className={`inline-flex rounded-sm px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${roleClass[role]}`}>
-      {label}
+    <span className={`inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${m.cls}`}>
+      <m.Icon className="w-3 h-3" aria-hidden="true" />
+      <T nl={m.nl} en={m.en} />
     </span>
   );
 }
@@ -129,7 +165,9 @@ export function ScaleRail({ active }: { active: "house" | "street" | "buurt" | "
             >
               <T nl={scale.nl} en={scale.en} />
             </div>
-            {index < scales.length - 1 && <span className="text-[#b8b09d]">→</span>}
+            {index < scales.length - 1 && (
+              <ChevronRight className="w-3.5 h-3.5 shrink-0 text-[#b8b09d]" aria-hidden="true" />
+            )}
           </div>
         ))}
       </div>
@@ -175,7 +213,12 @@ export function MapSketch({
   const height = compact ? "h-56" : "h-[330px]";
   return (
     <div className={`relative ${height} overflow-hidden bg-[#f2ead8]`}>
-      <svg viewBox="0 0 400 320" className="absolute inset-0 h-full w-full">
+      <svg
+        viewBox="0 0 400 320"
+        className="absolute inset-0 h-full w-full"
+        role="img"
+        aria-label="Schematische kaart van de buurt rond Javaplein"
+      >
         <rect width="400" height="320" fill="#f2ead8" />
         <path d="M30 42 H370 M30 112 H370 M30 184 H370 M30 252 H370" stroke="#d8cfb9" strokeWidth="2" />
         <path d="M72 18 V302 M154 18 V302 M244 18 V302 M326 18 V302" stroke="#d8cfb9" strokeWidth="2" />

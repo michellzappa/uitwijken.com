@@ -1,3 +1,18 @@
+import {
+  Baby,
+  Bike,
+  Building2,
+  Cpu,
+  Dices,
+  Dumbbell,
+  HeartPulse,
+  Leaf,
+  Music,
+  Palette,
+  Utensils,
+  Vote,
+  type LucideIcon,
+} from "lucide-react";
 import { TopBar, PageHeader } from "../components/Nav";
 import { AppTopBar } from "../components/PhoneChrome";
 import { PhoneFrame } from "../components/PhoneFrame";
@@ -21,7 +36,7 @@ function SignalBar({ label, value }: { label: React.ReactNode; value: string }) 
 type Sub = { nl: string; en: string };
 type Topic = {
   key: string;
-  glyph: string;
+  Icon: LucideIcon;
   nl: string;
   en: string;
   subs: Sub[];
@@ -30,7 +45,7 @@ type Topic = {
 const TOPICS: Topic[] = [
   {
     key: "muziek",
-    glyph: "♪",
+    Icon: Music,
     nl: "Muziek",
     en: "Music",
     subs: [
@@ -42,7 +57,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "tech",
-    glyph: "◌",
+    Icon: Cpu,
     nl: "Tech",
     en: "Tech",
     subs: [
@@ -54,7 +69,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "zorg",
-    glyph: "✚",
+    Icon: HeartPulse,
     nl: "Zorg",
     en: "Care",
     subs: [
@@ -66,7 +81,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "sport",
-    glyph: "△",
+    Icon: Dumbbell,
     nl: "Sport",
     en: "Sport",
     subs: [
@@ -78,7 +93,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "eten",
-    glyph: "◐",
+    Icon: Utensils,
     nl: "Eten",
     en: "Food",
     subs: [
@@ -90,7 +105,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "kunst",
-    glyph: "◇",
+    Icon: Palette,
     nl: "Kunst",
     en: "Art",
     subs: [
@@ -102,7 +117,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "wonen",
-    glyph: "▢",
+    Icon: Building2,
     nl: "Wonen",
     en: "Housing",
     subs: [
@@ -114,7 +129,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "mobiliteit",
-    glyph: "→",
+    Icon: Bike,
     nl: "Mobiliteit",
     en: "Mobility",
     subs: [
@@ -126,7 +141,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "natuur",
-    glyph: "❀",
+    Icon: Leaf,
     nl: "Natuur",
     en: "Nature",
     subs: [
@@ -138,7 +153,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "kinderen",
-    glyph: "◔",
+    Icon: Baby,
     nl: "Kinderen",
     en: "Children",
     subs: [
@@ -150,7 +165,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "politiek",
-    glyph: "✦",
+    Icon: Vote,
     nl: "Politiek",
     en: "Politics",
     subs: [
@@ -162,7 +177,7 @@ const TOPICS: Topic[] = [
   },
   {
     key: "spel",
-    glyph: "◈",
+    Icon: Dices,
     nl: "Spel",
     en: "Play",
     subs: [
@@ -178,7 +193,9 @@ function TopicRow({ topic }: { topic: Topic }) {
   return (
     <div className="border-b border-[var(--color-rule)] px-4 py-3">
       <div className="flex items-center gap-3">
-        <span className="w-6 text-center text-[15px] text-[var(--color-uitwijken)]">{topic.glyph}</span>
+        <span className="flex w-6 justify-center text-[var(--color-uitwijken)]">
+          <topic.Icon className="w-4 h-4" aria-hidden="true" />
+        </span>
         <span className="font-semibold text-[13px] flex-1">
           <T nl={topic.nl} en={topic.en} />
         </span>
@@ -221,7 +238,9 @@ function PickerRow({
         >
           ✓
         </span>
-        <span className="w-5 text-center text-[14px] text-[var(--color-uitwijken)]">{topic.glyph}</span>
+        <span className="flex w-5 justify-center text-[var(--color-uitwijken)]">
+          <topic.Icon className="w-4 h-4" aria-hidden="true" />
+        </span>
         <span className={`text-[13px] flex-1 ${picked ? "font-semibold" : ""}`}>
           <T nl={topic.nl} en={topic.en} />
         </span>
@@ -482,7 +501,9 @@ export default function ThemeViewMock() {
           />
           <div className="px-4 py-4 border-b border-[var(--color-rule)] bg-[#fafaf7]">
             <div className="flex items-center gap-2">
-              <span className="text-[22px] text-[var(--color-uitwijken)]">{muziek.glyph}</span>
+              <span className="text-[var(--color-uitwijken)]">
+                <muziek.Icon className="w-6 h-6" aria-hidden="true" />
+              </span>
               <div className="flex-1">
                 <div className="font-sans font-bold text-[18px] leading-none">
                   <T nl={muziek.nl} en={muziek.en} />
