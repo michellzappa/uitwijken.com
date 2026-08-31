@@ -1,5 +1,5 @@
 import { TopBar, PageHeader } from "../components/Nav";
-import { RoleTag, WikiRef } from "../components/CivicUI";
+import { MockRef, RoleTag, WikiRef } from "../components/CivicUI";
 import { T } from "../lib/i18n";
 
 function RoleColumn({
@@ -56,8 +56,9 @@ export default function GovernanceMock() {
         }
       />
 
-      <div className="max-w-6xl mx-auto px-6 -mt-4 pb-6">
+      <div className="max-w-6xl mx-auto px-6 -mt-4 pb-6 flex flex-wrap gap-2">
         <WikiRef slug="governance" label={<T nl="Governance-model" en="Governance model" />} />
+        <MockRef href="/operating-model" label={<T nl="Werkbaar operating model" en="Working operating model" />} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 pb-16">

@@ -53,6 +53,7 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | File | What it holds |
 |---|---|
 | [[Funding]] | How a society-owned platform can still fund a serious team |
+| [[Operating-model]] | Working proposal for ownership, technology, moderation, municipal responsibility, liability, appeals, and continuity |
 | [[Risks-and-next-steps]] | What must be proven now and next actions |
 
 ### Process & Record

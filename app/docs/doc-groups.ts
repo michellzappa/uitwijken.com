@@ -33,6 +33,7 @@ export const DOC_GROUPS: DocGroup[] = [
     label: "Delivery",
     items: [
       { slug: "funding", title: "Funding" },
+      { slug: "operating-model", title: "Operating model" },
       { slug: "risks-and-next-steps", title: "Risks & next steps" },
     ],
   },

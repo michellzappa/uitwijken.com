@@ -70,6 +70,7 @@ const KNOWN_SLUGS = new Set([
   "risks-and-next-steps",
   "open-data",
   "governance",
+  "operating-model",
   "history",
   "meeting-2026-04-16",
   "meeting-2026-05-22",

@@ -12,6 +12,7 @@ import {
   Map as MapIcon,
   MessageSquare,
   Scale,
+  ShieldCheck,
   Tags,
   type LucideIcon,
 } from "lucide-react";
@@ -45,7 +46,10 @@ const WIREFRAME_GROUPS: readonly WireGroup[] = [
   {
     nl: "Fundament",
     en: "Foundation",
-    items: [{ href: "/governance", nl: "Governance", en: "Governance", Icon: Scale }],
+    items: [
+      { href: "/governance", nl: "Governance", en: "Governance", Icon: Scale },
+      { href: "/operating-model", nl: "Operating model", en: "Operating model", Icon: ShieldCheck },
+    ],
   },
 ];
 

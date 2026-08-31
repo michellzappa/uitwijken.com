@@ -14,6 +14,8 @@ The long-term owner should be a civic vehicle that can credibly represent societ
 
 The exact structure can be decided later. The proof-of-concept only needs to show that ownership is a design requirement, not a nice-to-have.
 
+For a concrete pilot proposal that assigns ownership, technical operation, moderation, municipal responsibility, liability, appeals, and continuity, see [[Operating-model]].
+
 ## Three-Role Build Model
 
 The way Uitwijken.nl is built should mirror the way Uitwijken.nl works:
