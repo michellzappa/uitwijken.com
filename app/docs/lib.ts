@@ -59,6 +59,7 @@ export function rewriteWikilinks(src: string): string {
 }
 
 const KNOWN_SLUGS = new Set([
+  "atlas",
   "readme",
   "vision",
   "concepts",

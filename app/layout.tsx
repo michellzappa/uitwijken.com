@@ -4,9 +4,9 @@ import { SiteFooter } from "./components/Footer";
 import { LanguageProvider } from "./lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Uitwijken.nl — civic layer prototype",
+  title: "Uitwijken.nl — a living map of Amsterdam's digital public space",
   description:
-    "Proof-of-concept screens for a society-owned location-and-theme civic community layer.",
+    "A descriptive atlas of existing community, participation, and civic-knowledge platforms in and around Amsterdam. Not a new platform.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
