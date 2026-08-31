@@ -158,8 +158,8 @@ export default function OperatingModelPage() {
           </div>
           <div className="border-b border-[var(--color-rule)] py-4 md:border-b-0 md:border-r md:px-5 md:py-0">
             <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-secondary)]"><T nl="Juridisch" en="Legal" /></div>
-            <div className="mt-2 text-[15px] font-semibold leading-snug"><T nl="Onafhankelijke stichting" en="Independent foundation" /></div>
-            <div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="met bewonersmacht in het charter" en="with resident power in its charter" /></div>
+            <div className="mt-2 text-[15px] font-semibold leading-snug"><T nl="Bewonersvereniging" en="Resident-owned association" /></div>
+            <div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="één lid, één stem" en="one member, one vote" /></div>
           </div>
           <div className="border-b border-[var(--color-rule)] py-4 md:border-b-0 md:border-r md:px-5 md:py-0">
             <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-secondary)]"><T nl="Techniek" en="Technology" /></div>
@@ -192,15 +192,16 @@ export default function OperatingModelPage() {
             <ModelCard
               icon={Scale}
               eyebrow={<T nl="Juridisch eigenaar" en="Legal owner" />}
-              title={<T nl="Stichting Uitwijken" en="Uitwijken Foundation" />}
-              body={<T nl="Een onafhankelijke stichting houdt de naam, code, data-infrastructuur en contracten. Een bewonersvergadering en openbaar charter beschermen het publieke doel." en="An independent foundation holds the name, code, data infrastructure, and contracts. A residents' assembly and public charter protect the public purpose." />}
-              boundary={<T nl="de gemeente bezit geen aandelen, benoemt niet alleen het bestuur en bepaalt niet wat bewoners mogen zeggen." en="the municipality owns no shares, does not appoint the board alone, and does not decide what residents may say." />}
+              title={<T nl="Vereniging Uitwijken" en="Uitwijken Association" />}
+              body={<T nl="Een ledenvereniging van geverifieerde bewoners bezit de naam, code, data-infrastructuur en contracten. De algemene ledenvergadering kiest het bestuur en beschermt het publieke doel." en="A member association of verified residents owns the name, code, data infrastructure, and contracts. Its general members' assembly elects the board and protects the public purpose." />}
+              boundary={<T nl="de gemeente, ondernemer of tech-leverancier krijgt geen eigendoms- of benoemingsmacht." en="the municipality, a business, or a tech provider gets no ownership or appointment power." />}
+              role="resident"
             />
             <ModelCard
               icon={GitBranch}
               eyebrow={<T nl="Technisch beheer" en="Technical operation" />}
               title={<T nl="Een onafhankelijke tech-steward" en="An independent tech steward" />}
-              body={<T nl="Een non-profit of missiegebonden leverancier runt hosting, security, releases, back-ups, data-ingestie en toegankelijkheid onder opdracht van de stichting." en="A non-profit or mission-led provider runs hosting, security, releases, backups, data ingestion, and accessibility under contract to the foundation." />}
+              body={<T nl="Een non-profit of missiegebonden leverancier runt hosting, security, releases, back-ups, data-ingestie en toegankelijkheid onder opdracht van de vereniging." en="A non-profit or mission-led provider runs hosting, security, releases, backups, data ingestion, and accessibility under contract to the association." />}
               boundary={<T nl="de tech-steward maakt geen inhoudsregels, kiest geen prioriteiten en kan worden vervangen zonder dat de gemeenschap haar data verliest." en="the tech steward does not make content rules, choose priorities, or become irreplaceable through data lock-in." />}
             />
             <ModelCard
@@ -221,12 +222,33 @@ export default function OperatingModelPage() {
           </div>
         </section>
 
+        <section className="mb-12 border border-[var(--color-ink)] bg-white p-5 md:p-6">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-uitwijken)]">
+            <T nl="De eigendomstest" en="The ownership test" />
+          </div>
+          <h2 className="mt-3 font-sans text-2xl font-bold leading-tight tracking-tight">
+            <T nl="Community-owned betekent macht, niet alleen inspraak." en="Community-owned means power, not just consultation." />
+          </h2>
+          <p className="mt-3 max-w-3xl text-[14px] leading-[1.65] text-[#2a2926]">
+            <T
+              nl="Als bewoners niet kunnen kiezen wie bestuurt, de kernregels beschermen, zien wat er met geld en data gebeurt en een ongewenste overdracht tegenhouden, is het platform niet van de gemeenschap — ook al worden bewoners vaak geraadpleegd."
+              en="If residents cannot choose who governs, protect the core rules, see what happens with money and data, and stop an unwanted transfer, the platform is not community-owned—even if residents are frequently consulted."
+            />
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-4">
+            <div className="border border-[var(--color-rule)] p-4"><div className="text-[12px] font-semibold"><T nl="Bestuur" en="Governance" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Bewoners kiezen en kunnen het bestuur terugroepen." en="Residents elect and can recall the board." /></div></div>
+            <div className="border border-[var(--color-rule)] p-4"><div className="text-[12px] font-semibold"><T nl="Koers" en="Direction" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Bewoners stemmen over charter en missie." en="Residents vote on the charter and mission." /></div></div>
+            <div className="border border-[var(--color-rule)] p-4"><div className="text-[12px] font-semibold"><T nl="Bezittingen" en="Assets" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Code, data en geld zijn transparant en overdraagbaar." en="Code, data, and money are transparent and portable." /></div></div>
+            <div className="border border-[var(--color-rule)] p-4"><div className="text-[12px] font-semibold"><T nl="Uittreden" en="Exit" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Geen verkoop, fusie of sluiting zonder ledenbesluit." en="No sale, merger, or closure without a member decision." /></div></div>
+          </div>
+        </section>
+
         <div className="max-w-4xl">
           <ModelSection
             number="01"
             question={<T nl="Wie is juridisch eigenaar?" en="Who legally owns the platform?" />}
-            answer={<T nl="Een onafhankelijke stichting met een bewonersvergadering als beschermende macht." en="An independent foundation, with a residents' assembly as a constitutional counterweight." />}
-            body={<T nl="De stichting is de contractpartij voor hosting, personeel, verzekeringen, subsidies en partnerships. De statuten leggen vast: geen verkoop aan een commercieel platform, geen advertentiemodel, open-source code, publieke verantwoording en een bewonersrol bij bestuur en koers. De precieze statuten moeten met een notaris en governance-ontwerper worden uitgewerkt." en="The foundation is the contracting party for hosting, staff, insurance, grants, and partnerships. Its statutes lock in: no sale to a commercial platform, no advertising model, open-source code, public accountability, and a resident role in board composition and direction. Exact statutes need to be developed with a notary and governance designer." />}
+            answer={<T nl="Een bewonersvereniging: geverifieerde bewoners zijn lid en hebben één stem." en="A resident-owned association: verified residents are members with one vote each." />}
+            body={<T nl="De vereniging is de contractpartij voor hosting, personeel, verzekeringen, subsidies en partnerships. Bewoners kiezen en kunnen minstens de meerderheid van het bestuur terugroepen, stemmen over het charter en keuren grote wijzigingen aan eigendom, data, licentie, fusie of sluiting goed. Bewonersorganisaties kunnen partnerlid worden; gemeente en ondernemers doen mee als deelnemer of adviseur, maar krijgen geen stem die bewoners kan overrulen. De statuten moeten met een notaris en governance-ontwerper worden uitgewerkt." en="The association is the contracting party for hosting, staff, insurance, grants, and partnerships. Residents elect and can recall at least a majority of the board, vote on the charter, and approve major changes to ownership, data, licensing, merger, or closure. Resident organizations can join as partner members; the municipality and businesses participate as participants or advisors, but get no vote that can override residents. The statutes need to be developed with a notary and governance designer." />}
           >
             <div className="grid gap-3 md:grid-cols-3">
               <div className="border border-[var(--color-rule)] bg-white p-4"><div className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-uitwijken)]"><T nl="Beschermd" en="Protected" /></div><div className="mt-2 text-[13px] leading-relaxed"><T nl="Publiek doel, open code, geen verkoop of advertenties." en="Public purpose, open code, no sale or advertising." /></div></div>
@@ -238,7 +260,7 @@ export default function OperatingModelPage() {
           <ModelSection
             number="02"
             question={<T nl="Wie runt de technologie?" en="Who runs the technology?" />}
-            answer={<T nl="Een onafhankelijke tech-steward, onder opdracht van de stichting." en="An independent tech steward, contracted by the foundation." />}
+            answer={<T nl="Een onafhankelijke tech-steward, onder opdracht van de vereniging." en="An independent tech steward, contracted by the association." />}
             body={<T nl="De tech-steward is verantwoordelijk voor beschikbaarheid, beveiliging, updates, back-ups, open-data pipelines, toegankelijkheid en incidentrespons. De opdracht is transparant en overdraagbaar: code staat onder een open-source licentie, data kan worden geëxporteerd en minstens twee partijen moeten het systeem kunnen overnemen." en="The tech steward is responsible for availability, security, updates, backups, open-data pipelines, accessibility, and incident response. The mandate is transparent and transferable: code uses an open-source license, data can be exported, and at least two parties should be able to take over the system." />}
           />
 
@@ -259,7 +281,7 @@ export default function OperatingModelPage() {
             number="04"
             question={<T nl="Wat financiert, publiceert en beslist de gemeente?" en="What does the municipality fund, publish, and decide?" />}
             answer={<T nl="Zij financiert de publieke functie, publiceert officiële context en beslist alleen waar zij wettelijk bevoegd voor is." en="It funds the public function, publishes official context, and decides only where it has statutory authority." />}
-            body={<T nl="De gemeente krijgt een vaste liaison en een meerjarige overeenkomst met de stichting. Geld gaat naar kerncapaciteit: toegankelijkheid, security, moderation support, open-data ontsluiting, community connectors en evaluatie. De gemeente publiceert plannen, vergunningen, budgetten, deadlines en terugkoppelingen. Zij beslist zelf over gemeentelijke besluiten; bewonersinput maakt die besluiten beter, maar vervangt de wettelijke bevoegdheid niet." en="The municipality gets a standing liaison and a multi-year agreement with the foundation. Funding goes to core capacity: accessibility, security, moderation support, open-data access, community connectors, and evaluation. The municipality publishes plans, permits, budgets, deadlines, and responses. It decides its own municipal matters; resident input improves those decisions but does not replace statutory authority." />}
+            body={<T nl="De gemeente krijgt een vaste liaison en een meerjarige overeenkomst met de vereniging. Geld gaat naar kerncapaciteit: toegankelijkheid, security, moderation support, open-data ontsluiting, community connectors en evaluatie. De gemeente publiceert plannen, vergunningen, budgetten, deadlines en terugkoppelingen. Zij beslist zelf over gemeentelijke besluiten; bewonersinput maakt die besluiten beter, maar vervangt de wettelijke bevoegdheid niet." en="The municipality gets a standing liaison and a multi-year agreement with the association. Funding goes to core capacity: accessibility, security, moderation support, open-data access, community connectors, and evaluation. The municipality publishes plans, permits, budgets, deadlines, and responses. It decides its own municipal matters; resident input improves those decisions but does not replace statutory authority." />}
           >
             <div className="grid gap-3 md:grid-cols-3">
               <div className="border-l-4 border-[var(--color-uitwijken)] bg-white p-4"><div className="font-semibold text-[13px]"><T nl="Financiert" en="Funds" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Publieke infrastructuur, niet redactionele controle." en="Public infrastructure, not editorial control." /></div></div>
@@ -271,8 +293,8 @@ export default function OperatingModelPage() {
           <ModelSection
             number="05"
             question={<T nl="Wie is aansprakelijk voor schadelijke of onwettige inhoud?" en="Who is liable for harmful or unlawful content?" />}
-            answer={<T nl="De stichting is het eerste aanspreekbare platform; iedere bron blijft verantwoordelijk voor zijn eigen officiële publicaties en besluiten." en="The foundation is the first accountable platform operator; each source remains responsible for its own official publications and decisions." />}
-            body={<T nl="De stichting organiseert notice-and-action, snelle escalatie, moderation logs, verzekeringen en een contactpunt voor bevoegde instanties. De tech-steward handelt als uitvoerende verwerker/operator onder contract en meldt incidenten. Gemeentelijke content blijft herkenbaar als gemeentelijke bron. Moderatieborden krijgen duidelijke bevoegdheden en bescherming; zij dragen niet persoonlijk de volledige platformlast." en="The foundation organizes notice-and-action, rapid escalation, moderation logs, insurance, and a contact point for competent authorities. The tech steward acts as the contracted operational processor/operator and reports incidents. Municipal content remains identifiable as municipal-source content. Moderation boards get clear powers and protection; they do not personally carry the entire platform burden." />}
+            answer={<T nl="De vereniging is het eerste aanspreekbare platform; iedere bron blijft verantwoordelijk voor zijn eigen officiële publicaties en besluiten." en="The association is the first accountable platform operator; each source remains responsible for its own official publications and decisions." />}
+            body={<T nl="De vereniging organiseert notice-and-action, snelle escalatie, moderation logs, verzekeringen en een contactpunt voor bevoegde instanties. De tech-steward handelt als uitvoerende verwerker/operator onder contract en meldt incidenten. Gemeentelijke content blijft herkenbaar als gemeentelijke bron. Moderatieborden krijgen duidelijke bevoegdheden en bescherming; zij dragen niet persoonlijk de volledige platformlast." en="The association organizes notice-and-action, rapid escalation, moderation logs, insurance, and a contact point for competent authorities. The tech steward acts as the contracted operational processor/operator and reports incidents. Municipal content remains identifiable as municipal-source content. Moderation boards get clear powers and protection; they do not personally carry the entire platform burden." />}
           >
             <div className="flex items-start gap-3 border border-[var(--color-rule)] bg-[#fffaf0] p-4 text-[12.5px] leading-relaxed text-[#5f4a25]">
               <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-[#b57900]" aria-hidden="true" />
@@ -312,7 +334,7 @@ export default function OperatingModelPage() {
             number="07"
             question={<T nl="Hoe kan een bewoner in beroep gaan?" en="How can a resident appeal?" />}
             answer={<T nl="Via één herkenbare, getimede beroepsroute met een publieke reden en een onafhankelijke tweede blik." en="Through one recognizable, time-bound appeal route with a public reason and an independent second look." />}
-            body={<T nl="Een bewoner kan bezwaar maken tegen een moderatiebesluit, deelnamebesluit of procedurele fout. Het oorspronkelijke besluit blijft zichtbaar met reden en status. Eerst heroverweegt het lokale moderatiebord; daarna kan een onafhankelijke appeal panel of de stichting escaleren. Bij gemeentelijke besluiten verwijst het platform door naar de formele gemeentelijke bezwaarroute — het platform doet niet alsof een civic thread die route vervangt." en="A resident can challenge a moderation decision, participation decision, or procedural error. The original decision remains visible with reason and status. First the local moderation board reconsiders; then an independent appeal panel or the foundation can escalate. For municipal decisions, the platform points to the formal municipal objection route—it does not pretend a civic thread replaces it." />}
+            body={<T nl="Een bewoner kan bezwaar maken tegen een moderatiebesluit, deelnamebesluit of procedurele fout. Het oorspronkelijke besluit blijft zichtbaar met reden en status. Eerst heroverweegt het lokale moderatiebord; daarna kan een onafhankelijke appeal panel of de vereniging escaleren. Bij gemeentelijke besluiten verwijst het platform door naar de formele gemeentelijke bezwaarroute — het platform doet niet alsof een civic thread die route vervangt." en="A resident can challenge a moderation decision, participation decision, or procedural error. The original decision remains visible with reason and status. First the local moderation board reconsiders; then an independent appeal panel or the association can escalate. For municipal decisions, the platform points to the formal municipal objection route—it does not pretend a civic thread replaces it." />}
           >
             <div className="grid gap-2 md:grid-cols-4">
               {[
@@ -333,7 +355,7 @@ export default function OperatingModelPage() {
             number="08"
             question={<T nl="Hoe overleeft het platform een politieke wisseling?" en="How does the platform survive a change of political leadership?" />}
             answer={<T nl="Door de relatie met de gemeente institutioneel te maken, de code overdraagbaar te houden en de gemeenschap formele beschermingsmacht te geven." en="By making the municipal relationship institutional, keeping the code transferable, and giving the community formal protective power." />}
-            body={<T nl="De stichting sluit een meerjarige publieke overeenkomst met transparante doelen, financiering en service-afspraken — niet een persoonlijk akkoord met één wethouder of ambtenaar. Een vaste gemeentelijke liaison bewaakt continuïteit. De stichting publiceert jaarlijks financiën, moderatie- en impactrapportage. Open code, exporteerbare data, documentatie en een overdraagbaar contract maken een nieuwe tech-partner mogelijk. De bewonersvergadering bewaakt het charter wanneer bestuur of politieke wind verandert." en="The foundation signs a multi-year public agreement with transparent goals, funding, and service commitments—not a personal deal with one alderperson or civil servant. A standing municipal liaison protects continuity. The foundation publishes annual financial, moderation, and impact reports. Open code, exportable data, documentation, and a transferable contract make a new tech partner possible. The residents' assembly protects the charter when leadership or political winds change." />}
+            body={<T nl="De vereniging sluit een meerjarige publieke overeenkomst met transparante doelen, financiering en service-afspraken — niet een persoonlijk akkoord met één wethouder of ambtenaar. Een vaste gemeentelijke liaison bewaakt continuïteit. De vereniging publiceert jaarlijks financiën, moderatie- en impactrapportage. Open code, exporteerbare data, documentatie en een overdraagbaar contract maken een nieuwe tech-partner mogelijk. De algemene ledenvergadering bewaakt het charter wanneer bestuur of politieke wind verandert." en="The association signs a multi-year public agreement with transparent goals, funding, and service commitments—not a personal deal with one alderperson or civil servant. A standing municipal liaison protects continuity. The association publishes annual financial, moderation, and impact reports. Open code, exportable data, documentation, and a transferable contract make a new tech partner possible. The general members' assembly protects the charter when leadership or political winds change." />}
           >
             <div className="grid gap-3 md:grid-cols-3">
               <div className="border border-[var(--color-rule)] bg-white p-4"><ShieldCheck className="h-5 w-5 text-[var(--color-moss)]" aria-hidden="true" /><div className="mt-2 text-[13px] font-semibold"><T nl="Charter" en="Charter" /></div><div className="mt-1 text-[12px] leading-relaxed text-[var(--color-secondary)]"><T nl="Publieke waarden zijn niet afhankelijk van een bestuurstermijn." en="Public values do not depend on a term in office." /></div></div>

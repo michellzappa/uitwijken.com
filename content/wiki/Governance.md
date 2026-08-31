@@ -16,6 +16,8 @@ The exact structure can be decided later. The proof-of-concept only needs to sho
 
 For a concrete pilot proposal that assigns ownership, technical operation, moderation, municipal responsibility, liability, appeals, and continuity, see [[Operating-model]].
 
+**Current working direction:** a resident-owned association with one-member-one-vote. A foundation remains an alternative to test with legal and governance experts, but it is no longer the default because community ownership needs members with formal control.
+
 ## Three-Role Build Model
 
 The way Uitwijken.nl is built should mirror the way Uitwijken.nl works:
