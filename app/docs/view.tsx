@@ -1,7 +1,24 @@
 import Link from "next/link";
+import { Children, isValidElement, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { RoleTag, ROLE_META, type CivicRole } from "../components/CivicUI";
+import { slugify } from "./lib";
+
+/** Heading text as an anchor id, slugged the same way as `[[Page#Section]]` links. */
+function headingId(children: ReactNode): string {
+  const text = (node: ReactNode): string =>
+    Children.toArray(node)
+      .map((c) =>
+        typeof c === "string" || typeof c === "number"
+          ? String(c)
+          : isValidElement<{ children?: ReactNode }>(c)
+            ? text(c.props.children)
+            : "",
+      )
+      .join("");
+  return slugify(text(children));
+}
 
 export function DocView({ title, body }: { title: string; body: string }) {
   return (
@@ -16,22 +33,22 @@ export function DocView({ title, body }: { title: string; body: string }) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children }) => (
-            <h2 className="font-sans font-bold text-[1.625rem] tracking-tight leading-snug mt-10 mb-3">
+            <h2 id={headingId(children)} className="font-sans font-bold text-[1.625rem] tracking-tight leading-snug mt-10 mb-3">
               {children}
             </h2>
           ),
           h2: ({ children }) => (
-            <h2 className="font-sans font-bold text-[1.625rem] tracking-tight leading-snug mt-10 mb-3">
+            <h2 id={headingId(children)} className="font-sans font-bold text-[1.625rem] tracking-tight leading-snug mt-10 mb-3">
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="font-sans font-bold text-[1.25rem] tracking-tight leading-snug mt-7 mb-2">
+            <h3 id={headingId(children)} className="font-sans font-bold text-[1.25rem] tracking-tight leading-snug mt-7 mb-2">
               {children}
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 className="font-sans font-bold text-[1.0625rem] tracking-tight leading-snug mt-6 mb-2">
+            <h4 id={headingId(children)} className="font-sans font-bold text-[1.0625rem] tracking-tight leading-snug mt-6 mb-2">
               {children}
             </h4>
           ),

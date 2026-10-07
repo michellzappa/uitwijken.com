@@ -36,7 +36,7 @@ Uitwijken is geen vervanging van lokale platformen. Het maakt het bestaande ecos
 - Vergelijkingstabel met zichtbaar gemarkeerde open velden
 - Synthesepagina *Patronen en gaten*, met de vijf vragen aan Amsterdam
 
-Startvermeldingen: [[Atlas#Seed-entries|Hallo IJburg, KennisCloud, OpenStad, Decidim, Wij Amsterdam en Gebiedonline]].
+Startvermeldingen: [Hallo IJburg, KennisCloud, OpenStad, Decidim, Wij Amsterdam en Gebiedonline](/atlas).
 
 ## Fase 2 — gedeeld beoordelingsinstrument
 
@@ -63,7 +63,7 @@ Het onderzoek naar startjaren leverde meteen de belangrijkste bevinding van deze
 - **Hallo IJburg** ging op 21 mei 2012 live, voortgekomen uit IJburgDroomt–IJburgDoet (2010). De techniek werd gebouwd door IJburger Michel Vogler.
 - Die software werd in 2016 ondergebracht in **coöperatie Gebiedonline**, opgericht door vijf bewonersnetwerken: IJburg, de Indische Buurt en Buiksloterham in Amsterdam, plus Amersfoort en Gouda.
 - **OpenStad** ontstond in 2016 als innovatieteam van de gemeente Amsterdam; Den Haag was in 2019 de eerste andere gemeente. Inmiddels circa vijftig publieke organisaties.
-- **Wij Amsterdam** verscheen in april 2020, begonnen als coronahulpplatform, en draait naar verluidt op OpenStad.
+- **Wij Amsterdam** verscheen in april 2020, begonnen als coronahulpplatform. Een bron uit 2020 noemt OpenStad als basis; de techniek van vandaag wijst naar Gebiedonline (zie [Interoperabiliteit](#interoperabiliteit-wat-er-werkelijk-antwoordde)).
 - **Decidim** komt voort uit het EU-project D-CENT (2013–2016); decidim.barcelona ging op 31 januari 2016 live.
 - **KennisCloud** heeft geen vindbaar startjaar en is in Noord-Brabant ontstaan, rond bibliotheken.
 
@@ -94,7 +94,7 @@ Drie lagen, streng uit elkaar te houden:
 2. **Gedeelde data** — vrijwel nul. Eén werkend machineleesbaar eindpunt in de hele atlas: `halloijburg.nl/rss`. Datzelfde pad bestaat op gebiedonline.nl en wijamsterdam.nl, draagt daar de titel "Hallo IJburg kalender", verwijst naar halloijburg.nl/rss en levert nul items. Geen API, geen iCal, geen sitemap, geen export.
 3. **Gedeelde standaarden** — niet aan begonnen. Geen Amsterdams systeem publiceert een schema of licentie. Decidim wel: GraphQL-API plus CSV/JSON onder de Open Database License.
 
-De conclusie is scherper dan "versnippering". Drie systemen delen een codebase en wisselen niets uit. Het eindpunt bestaat al en staat per netwerk verkeerd ingesteld. De goedkoopste winst in dit hele dossier is een configuratiekwestie die niemand ooit heeft gevraagd — zie [[Atlas#Interoperabiliteit-wat-er-werkelijk-antwoordde|/atlas/interop]] voor het volledige testverslag en de vier stappen die eruit volgen.
+De conclusie is scherper dan "versnippering". Drie systemen delen een codebase en wisselen niets uit. Het eindpunt bestaat al en staat per netwerk verkeerd ingesteld. De goedkoopste winst in dit hele dossier is een configuratiekwestie die niemand ooit heeft gevraagd — zie [/atlas/interop](/atlas/interop) voor het volledige testverslag en de vier stappen die eruit volgen.
 
 ## De wachtrij
 

@@ -17,10 +17,10 @@ export type Bi = { nl: string; en: string };
 /**
  * How solid is this field?
  *  - documented   : stated by the platform itself or by the City, with a source
- *  - partial      : partly known, or known only as a self-description
+ *  - self-reported: the platform's own description of itself, not checked
  *  - to-validate  : we do not know yet; shown as an open field, never guessed
  */
-export type Confidence = "documented" | "partial" | "to-validate";
+export type Confidence = "documented" | "self-reported" | "to-validate";
 
 export type Note = { value: Bi; confidence: Confidence; source?: string };
 
@@ -152,7 +152,7 @@ export const CONFIDENCE_META: Record<Confidence, Bi & { cls: string }> = {
     en: "Documented",
     cls: "border-[#b9cdb0] bg-[#dfe6d5] text-[#33501e]",
   },
-  partial: {
+  "self-reported": {
     nl: "Eigen opgave",
     en: "Self-reported",
     cls: "border-[#e2cfa8] bg-[var(--color-uitwijken-soft)] text-[#7a3418]",
@@ -416,7 +416,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Bewoners, ondernemers en professionals in IJburg.",
         en: "Residents, entrepreneurs, and professionals in IJburg.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://halloijburg.nl/",
     },
     purpose: {
@@ -424,7 +424,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Eén lokale plek waar bewoners, ondernemers en professionals informatie delen: nieuws, agenda, vraag en aanbod, en buurtprioriteiten.",
         en: "One local place where residents, entrepreneurs, and professionals share information: news, calendar, requests and offers, and local priorities.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://halloijburg.nl/",
     },
     governance: {
@@ -432,7 +432,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Gebouwd door een team IJburgers vanuit IJburgDroomt–IJburgDoet, een informeel netwerk van zo'n 150 mensen dat inmiddels niet meer actief is; het IJburg-netwerk is medeoprichter van coöperatie Gebiedonline. Wie vandaag formeel eigenaar is en wie eindverantwoordelijk is voor moderatie staat nergens uitgeschreven.",
         en: "Built by a team of IJburg residents out of IJburgDroomt–IJburgDoet, an informal network of some 150 people that is no longer active; the IJburg network is a co-founder of the Gebiedonline cooperative. Who formally owns it today and who is ultimately responsible for moderation is written down nowhere.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/we_zijn_een_cooperatie",
     },
     funding: {
@@ -440,7 +440,7 @@ export const PLATFORMS: Platform[] = [
         nl: "De site dankt steun aan onder meer Stadsdeel Oost, het IJburg College en de Coalitie IJburg. Of dat geld, ruimte of inzet was — en of het nog loopt — staat er niet bij.",
         en: "The site credits support from Stadsdeel Oost, the IJburg College, and the Coalitie IJburg, among others. Whether that was money, space, or effort — and whether it still runs — is not stated.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://halloijburg.nl/overons",
     },
     activity: {
@@ -448,7 +448,7 @@ export const PLATFORMS: Platform[] = [
         nl: "De site toont een lopende nieuwsstroom, een agenda, vraag- en aanbodberichten en buurtprioriteiten. Aantallen deelnemers of bijdragen worden niet gepubliceerd.",
         en: "The site shows a running news stream, a calendar, requests and offers, and local priorities. Participant or contribution counts are not published.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://halloijburg.nl/",
     },
     interop: {
@@ -456,7 +456,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Draait op de software die hier is ontstaan en in 2016 in coöperatie Gebiedonline is ondergebracht. Of daar een API, export of open-sourcelicentie bij hoort, is nog niet vastgesteld.",
         en: "Runs on the software that originated here and was placed in the Gebiedonline cooperative in 2016. Whether that comes with an API, export, or open-source licence has not been established.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/we_zijn_een_cooperatie",
     },
     moderation: {
@@ -556,7 +556,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Mensen, communities en organisaties die rond een maatschappelijk thema willen samenwerken.",
         en: "People, communities, and organisations who want to work together around a socially relevant theme.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.kenniscloud.nl/",
     },
     purpose: {
@@ -564,7 +564,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Elkaar online én offline ontmoeten rond maatschappelijk relevante thema's, met kennisgroepen, meetups en regio's.",
         en: "Meeting online and offline around socially relevant themes, through knowledge groups, meetups, and regions.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.kenniscloud.nl/",
     },
     governance: {
@@ -579,7 +579,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Tot stand gekomen met steun van onder meer Stichting Pica, die informatievoorziening financiert. Het lopende exploitatiemodel is niet publiek beschreven.",
         en: "Created with support from Stichting Pica, among others, which funds information provision. The ongoing operating model is not publicly described.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.kenniscloud.nl/page/376/over-deze-site",
     },
     activity: {
@@ -587,7 +587,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Kennisgroepen, meetups, regio-ingangen en citizen-science-activiteit zijn zichtbaar. De Amsterdamse deelverzameling is niet apart gemeten.",
         en: "Knowledge groups, meetups, regional entry points, and citizen-science activity are visible. The Amsterdam subset has not been measured separately.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.kenniscloud.nl/",
     },
     interop: {
@@ -602,7 +602,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Er zijn gebruiksvoorwaarden, gedragsregels en een notice-and-takedownbeleid gepubliceerd — meer formele moderatiedocumentatie dan enig ander platform in deze atlas laat zien. Wie handhaaft is niet beschreven.",
         en: "Terms of use, a code of conduct, and a notice-and-takedown policy are published — more formal moderation documentation than any other platform in this atlas shows. Who enforces it is not described.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.kenniscloud.nl/page/376/over-deze-site",
     },
     cityRelation: {
@@ -647,7 +647,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Sinds 2016 ontwikkeld door een innovatieteam van de gemeente Amsterdam. Den Haag was in 2019 de eerste andere gemeente die ermee ging werken.",
         en: "Developed since 2016 by an innovation team at the City of Amsterdam. The Hague was the first other municipality to adopt it, in 2019.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
     },
     usageEstimate: {
@@ -687,7 +687,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Interactieve participatiesites per traject mogelijk maken, met stem-, plan- en budgetmodules — ingebed in een project, niet als plek waar bewoners permanent lid worden.",
         en: "Enabling interactive participation sites per process, with voting, plan, and budget modules — embedded in a project, not a place residents permanently join.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
     },
     governance: {
@@ -695,7 +695,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Ontstaan als innovatieteam van de gemeente Amsterdam en gepositioneerd als 'van, voor en door gemeenten'. Hoe eigendom, roadmap-zeggenschap en onderhoud vandaag formeel geregeld zijn, is met het team te bevestigen.",
         en: "Started as an innovation team at the City of Amsterdam and positioned as 'by, for, and with municipalities'. How ownership, roadmap control, and maintenance are formally arranged today is to be confirmed with the team.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
     },
     funding: {
@@ -710,7 +710,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Meer dan honderd trajecten uitgevoerd, onder meer in Amsterdam, Den Haag, Alphen aan den Rijn, Haarlem en Utrecht; circa vijftig publieke organisaties zijn betrokken. Hoeveel daarvan nu in Amsterdam actief zijn is niet uitgesplitst.",
         en: "More than a hundred processes carried out, including in Amsterdam, The Hague, Alphen aan den Rijn, Haarlem, and Utrecht; some fifty public organisations are involved. How many of those are currently active in Amsterdam is not broken out.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
     },
     interop: {
@@ -732,7 +732,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Binnen de gemeente Amsterdam ontstaan en inmiddels ook gebruikt door andere gemeenten, provincies en waterschappen. Een bron uit 2020 koppelt Wij Amsterdam aan deze software; de techniek van dat platform wijst inmiddels ergens anders heen.",
         en: "Originated inside the City of Amsterdam and is now also used by other municipalities, provinces, and water boards. A 2020 source links Wij Amsterdam to this software; that platform's technical signature now points elsewhere.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
     },
     doesWell: {
@@ -812,7 +812,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Steden, organisaties en bewegingen die participatie organiseren, en hun deelnemers.",
         en: "Cities, organisations, and movements organising participation, and their participants.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://decidim.org/",
     },
     purpose: {
@@ -820,7 +820,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Vrije/libre infrastructuur voor democratische participatie, met nadruk op transparantie, traceerbaarheid, privacy en gemeenschapseigendom.",
         en: "Free/libre infrastructure for democratic participation, emphasising transparency, traceability, privacy, and community ownership.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://decidim.org/",
     },
     governance: {
@@ -828,7 +828,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Beschrijft een expliciet democratisch governance-model rond de software zelf, inclusief een sociaal contract voor gebruikers.",
         en: "Describes an explicit democratic governance model around the software itself, including a social contract for users.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://decidim.org/",
     },
     funding: {
@@ -843,7 +843,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Meer dan 400 actieve instanties in circa twintig landen, waaronder Helsinki, Mexico-Stad, New York en de Franse Assemblée nationale. Geen Amsterdamse uitrol bekend.",
         en: "More than 400 active instances in some twenty countries, including Helsinki, Mexico City, New York, and the French National Assembly. No Amsterdam deployment known.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://en.wikipedia.org/wiki/Decidim",
     },
     interop: {
@@ -851,7 +851,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Vrije software met publieke broncode; welke API's en exports relevant zijn voor een Amsterdamse context is nog te bepalen.",
         en: "Free software with public source code; which APIs and exports matter for an Amsterdam context is still to be determined.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://decidim.org/",
     },
     moderation: {
@@ -902,7 +902,7 @@ export const PLATFORMS: Platform[] = [
         nl: "In april 2020 gepubliceerd door de gemeente, aanvankelijk om hulpinitiatieven tijdens de coronacrisis te verbinden, en daarna verbreed naar initiatiefnemers in het algemeen.",
         en: "Published by the City in April 2020, initially to connect mutual-aid initiatives during the coronavirus crisis, and later broadened to initiative-takers in general.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.spe-amsterdam.nl/platform-wij-amsterdam/",
     },
     usageEstimate: {
@@ -966,14 +966,14 @@ export const PLATFORMS: Platform[] = [
         nl: "Aangeboden door de gemeente Amsterdam. Redactionele zeggenschap en de criteria voor 'erkend' buurtplatform zijn niet publiek uitgeschreven.",
         en: "Provided by the City of Amsterdam. Editorial control and the criteria for a 'recognised' neighbourhood platform are not publicly written out.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
     },
     funding: {
       value: {
         nl: "Publiek gefinancierd als gemeentelijke voorziening. Jaarlijkse kosten niet publiek gevonden.",
         en: "Publicly funded as a municipal service. Annual cost not publicly found.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
     },
     activity: {
       value: {
@@ -1001,7 +1001,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Dit ís de gemeente — en het draait op de software van de bewonerscoöperatie. Een derde partij schreef in 2020 dat het op OpenStad gebouwd was; de techniek van vandaag wijst onmiskenbaar naar Gebiedonline. Welke van de twee klopt, is de eerste vraag aan de gemeente.",
         en: "This is the City — and it runs on the resident cooperative's software. A third party wrote in 2020 that it was built on OpenStad; today's technical signature points unmistakably at Gebiedonline. Which of the two holds is the first question to put to the City.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://www.spe-amsterdam.nl/platform-wij-amsterdam/",
     },
     doesWell: {
@@ -1094,7 +1094,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Buurt- en themaplatformen en hun deelnemers; de leden zijn de communities zelf.",
         en: "Neighbourhood and thematic platforms and their participants; the members are the communities themselves.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/",
     },
     purpose: {
@@ -1102,7 +1102,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Gedeelde community-software leveren zonder centraal eigenaarschap, zodat een buurt niet zelf hoeft te bouwen.",
         en: "Supplying shared community software without central ownership, so a neighbourhood does not have to build its own.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/",
     },
     governance: {
@@ -1110,7 +1110,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Naar eigen zeggen beslissen leden mee over functies, tarieven, organisatie, opgeslagen data en het ontwikkelbudget. Dat is het scherpst uitgeschreven zeggenschapsmodel in deze atlas.",
         en: "By its own account, members co-decide on features, fees, organisation, stored data, and the development budget. That is the most sharply written model of control in this atlas.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/",
     },
     funding: {
@@ -1118,7 +1118,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Ledenbijdragen, met tarieven waar de leden zelf over besluiten. Verhouding tot gemeentelijke subsidies onbekend.",
         en: "Member fees, with rates the members decide on themselves. Relationship to municipal subsidy unknown.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/",
     },
     activity: {
@@ -1126,7 +1126,7 @@ export const PLATFORMS: Platform[] = [
         nl: "Eigen opgave: 70 communities en 60.000+ geregistreerde mensen. Niet onafhankelijk geverifieerd, en niet uitgesplitst naar Amsterdam.",
         en: "Self-reported: 70 communities and 60,000+ registered people. Not independently verified, and not broken down for Amsterdam.",
       },
-      confidence: "partial",
+      confidence: "self-reported",
       source: "https://gebiedonline.nl/",
     },
     interop: {
@@ -1262,7 +1262,7 @@ export const SHORTLIST: Candidate[] = [
     name: "Hoplr",
     url: "https://www.hoplr.com/",
     launchedYear: "2014",
-    launchedConfidence: "partial",
+    launchedConfidence: "self-reported",
     source: "https://blog.hoplr.com/nl/functionaliteiten-buurtcommunicatie/",
     what: {
       nl: "Buurtnetwerk uit Gent, opgericht in 2014, dat naar eigen opgave met meer dan honderd lokale overheden in België en Nederland werkt.",
@@ -1338,7 +1338,7 @@ export const SHORTLIST: Candidate[] = [
     name: "Amsterdam Smart City",
     url: "https://amsterdamsmartcity.com/",
     launchedYear: "2009",
-    launchedConfidence: "partial",
+    launchedConfidence: "self-reported",
     source: "https://amsterdamsmartcity.com/updates/news/10-years-of-innovation-urban-development-collabo",
     what: {
       nl: "Samenwerkingsplatform voor de metropoolregio, in 2009 gestart door Amsterdam Innovation Motor en netbeheerder Alliander, met naar eigen opgave meer dan honderd partners.",
@@ -1376,7 +1376,7 @@ export const SHORTLIST: Candidate[] = [
     name: "Go Vocal (voorheen CitizenLab)",
     url: "https://www.govocal.com/",
     launchedYear: "2015",
-    launchedConfidence: "partial",
+    launchedConfidence: "self-reported",
     source: "https://www.govocal.com/news/citizenlab-rebrands-to-go-vocal",
     what: {
       nl: "Commercieel participatieplatform, in 2015 in Brussel opgericht als CitizenLab en inmiddels hernoemd naar Go Vocal; verkocht aan lokale overheden.",
@@ -1395,7 +1395,7 @@ export const SHORTLIST: Candidate[] = [
     name: "BUURbook",
     url: null,
     launchedYear: "2013",
-    launchedConfidence: "partial",
+    launchedConfidence: "self-reported",
     source: "https://lpb.nl/9-digitale-buurtplatforms-vergeleken/",
     what: {
       nl: "Commercieel buurtplatform uit 2013, in een landelijke vergelijking van 2018 actief in dertien buurten. Huidige status onbekend.",
@@ -1414,7 +1414,7 @@ export const SHORTLIST: Candidate[] = [
     name: "KopjeSuiker",
     url: null,
     launchedYear: "2012",
-    launchedConfidence: "partial",
+    launchedConfidence: "self-reported",
     source: "https://lpb.nl/9-digitale-buurtplatforms-vergeleken/",
     what: {
       nl: "Bewonersinitiatief uit 2012, live sinds 2014, gericht op onderlinge hulp en gezelligheid in de buurt. Huidige status onbekend.",
