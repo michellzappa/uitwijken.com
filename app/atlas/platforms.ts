@@ -381,8 +381,8 @@ export const PLATFORMS: Platform[] = [
           result: "works",
           verified: "probed",
           note: {
-            nl: "Levert de agenda als RSS. Dit is het enige werkende machineleesbare eindpunt dat in deze hele atlas is aangetroffen.",
-            en: "Serves the calendar as RSS. This is the only working machine-readable endpoint found anywhere in this atlas.",
+            nl: "Levert de agenda als RSS. Op 31 augustus 2026 was dit het enige werkende eindpunt met inhoud in deze atlas. Een hertest op 5 november 2026 vond ook werkende feeds op andere Gebiedonline-netwerken.",
+            en: "Serves the calendar as RSS. On 31 August 2026 this was the only working endpoint with content in this atlas. A retest on 5 November 2026 also found working feeds on other Gebiedonline networks.",
           },
         },
         {
@@ -707,11 +707,11 @@ export const PLATFORMS: Platform[] = [
     },
     activity: {
       value: {
-        nl: "Meer dan honderd trajecten uitgevoerd, onder meer in Amsterdam, Den Haag, Alphen aan den Rijn, Haarlem en Utrecht; circa vijftig publieke organisaties zijn betrokken. Hoeveel daarvan nu in Amsterdam actief zijn is niet uitgesplitst.",
-        en: "More than a hundred processes carried out, including in Amsterdam, The Hague, Alphen aan den Rijn, Haarlem, and Utrecht; some fifty public organisations are involved. How many of those are currently active in Amsterdam is not broken out.",
+        nl: "Volgens VNG in 2026 gebruikt door 43 publieke organisaties voor meer dan 500 participatieprojecten. De methode is onbekend, en hoeveel daarvan nu in Amsterdam actief zijn is niet uitgesplitst.",
+        en: "According to VNG in 2026, used by 43 public organisations for more than 500 participation projects. The method is unknown, and how many of those are currently active in Amsterdam is not broken out.",
       },
       confidence: "self-reported",
-      source: "https://vng.nl/praktijkvoorbeelden/openstad-van-voor-en-door-gemeenten",
+      source: "https://vng.nl/artikelen/openstad-voor-iedereen-digitale-participatie-die-werkt-voor-alle-gemeenten",
     },
     interop: {
       value: {
@@ -1068,8 +1068,8 @@ export const PLATFORMS: Platform[] = [
           result: "empty",
           verified: "probed",
           note: {
-            nl: "Hetzelfde beeld als bij Wij Amsterdam: de titel is \u201cHallo IJburg kalender\u201d en er komen nul items uit.",
-            en: "The same picture as Wij Amsterdam: the title is \u201cHallo IJburg kalender\u201d and zero items come out.",
+            nl: "De titel is \u201cHallo IJburg kalender\u201d. Op 31 augustus 2026 kwamen er nul items uit, op 5 november 2026 één. Andere netwerken op deze software leveren tot 91 eigen items.",
+            en: "The title is \u201cHallo IJburg kalender\u201d. On 31 August 2026 zero items came out, on 5 November 2026 one. Other networks on this software deliver up to 91 items of their own.",
           },
         },
         {

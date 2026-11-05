@@ -46,6 +46,7 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | [[Event-sources]] | Living inventory of geotagged event APIs, feeds, and scrape targets — with the current working priority |
 | [[Map-sources]] | Living inventory of the base tiles, boundaries, and address/building geometry behind the map |
 | [[Precedents]] | Similar civic-infrastructure initiatives elsewhere — Decidim and others — and what each one proves |
+| [[G4]] | First scan of Rotterdam, Den Haag, Utrecht, and their regions, next to the Amsterdam atlas |
 | [[Research-log]] | Append-only record of research dives and the decisions they produced |
 
 ### Delivery

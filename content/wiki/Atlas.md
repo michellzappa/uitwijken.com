@@ -96,6 +96,8 @@ Drie lagen, streng uit elkaar te houden:
 
 De conclusie is scherper dan "versnippering". Drie systemen delen een codebase en wisselen niets uit. Het eindpunt bestaat al en staat per netwerk verkeerd ingesteld. De goedkoopste winst in dit hele dossier is een configuratiekwestie die niemand ooit heeft gevraagd — zie [/atlas/interop](/atlas/interop) voor het volledige testverslag en de vier stappen die eruit volgen.
 
+**Correctie, 5 november 2026.** Een hertest laat zien dat `/rss` op Gebiedonline-netwerken per netwerk eigen items levert, bijvoorbeeld 91 bij Oost voor Elkaar in Utrecht en 11 bij Hallo Watergraafsmeer. De kanaaltitel en de linkhost blijven die van Hallo IJburg, en items hebben geen `pubDate`. gebiedonline.nl gaf 1 item en wijamsterdam.nl 0. Zie [[G4]].
+
 ## De wachtrij
 
 Elf vermeldingen staan op de shortlist zonder volledig profiel, met naam, startjaar en de reden waarom ze ertoe doen: onder meer Nextdoor (NL-lancering 2016), Hoplr (2014), Mijnbuurtje.nl, Pleio (2010), openresearch.amsterdam, Amsterdam Smart City (2009), Consul Democracy (2015), Go Vocal/CitizenLab (2015), en vier platformen uit een landelijke vergelijking van 2018 waarvan de huidige status onbekend is.

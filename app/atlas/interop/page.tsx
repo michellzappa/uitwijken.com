@@ -29,8 +29,8 @@ const LAYERS = [
     verdict: { nl: "Vrijwel nul", en: "Effectively zero" },
     tone: "bad" as const,
     body: {
-      nl: "Op die gedeelde installatie is precies één machineleesbaar eindpunt te vinden — /rss — en dat werkt alleen op de site waarvoor het in 2012 gebouwd is. Op gebiedonline.nl en wijamsterdam.nl bestaat hetzelfde pad, draagt het de titel 'Hallo IJburg kalender', verwijst het naar halloijburg.nl/rss en levert het nul items. Geen API, geen iCal, geen sitemap, geen export.",
-      en: "On that shared installation exactly one machine-readable endpoint exists — /rss — and it works only on the site it was built for in 2012. On gebiedonline.nl and wijamsterdam.nl the same path exists, carries the title 'Hallo IJburg kalender', points at halloijburg.nl/rss, and yields zero items. No API, no iCal, no sitemap, no export.",
+      nl: "Op die gedeelde installatie is één machineleesbaar eindpunt te vinden: /rss. Op 31 augustus 2026 gaven gebiedonline.nl en wijamsterdam.nl nul items. Een hertest op 5 november 2026 laat zien dat andere netwerken hun eigen agenda leveren, tot 91 items, terwijl wijamsterdam.nl leeg blijft. Elke feed heet 'Hallo IJburg kalender', linkt via halloijburg.nl en heeft geen pubDate. Geen API, geen iCal, geen sitemap, geen export.",
+      en: "On that shared installation one machine-readable endpoint exists: /rss. On 31 August 2026 gebiedonline.nl and wijamsterdam.nl returned zero items. A retest on 5 November 2026 shows other networks delivering their own calendar, up to 91 items, while wijamsterdam.nl stays empty. Every feed is titled 'Hallo IJburg kalender', links through halloijburg.nl, and has no pubDate. No API, no iCal, no sitemap, no export.",
     },
   },
   {
@@ -52,8 +52,8 @@ const MOVES = [
     effort: { nl: "Een middag", en: "An afternoon" },
     title: { nl: "Repareer /rss per netwerk", en: "Fix /rss per network" },
     body: {
-      nl: "Het eindpunt bestaat al in de gedeelde code. Het per netwerk laten werken is een configuratiekwestie, geen bouwproject — en levert meteen een agenda per buurt op die andere sites kunnen tonen.",
-      en: "The endpoint already exists in the shared code. Making it work per network is a configuration matter, not a build project — and it immediately yields a per-neighbourhood calendar other sites can display.",
+      nl: "De items per netwerk zijn er al. Wat ontbreekt is de juiste kanaaltitel, links naar het eigen netwerk en een pubDate. Daarna kunnen andere sites de agenda per buurt tonen.",
+      en: "The per-network items already exist. What is missing is the right channel title, links to the network itself, and a pubDate. After that, other sites can display the calendar per neighbourhood.",
     },
   },
   {

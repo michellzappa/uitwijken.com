@@ -14,6 +14,37 @@ This is intentionally append-only. When facts change, add a new entry — don't 
 
 ---
 
+## 2026-11-05 — G4 scan: Rotterdam, Den Haag, Utrecht and their regions
+
+**Question:** What does the digital public space look like outside Amsterdam, and does the atlas hold up when it moves to the other G4 cities?
+
+**Method:** Four parallel research agents: one per city region, and one for the national layer (OpenStad, Gebiedonline, vendors, G4 and VNG channels, area models). Endpoints were requested directly. Conflicts between the agents and all corrections to existing atlas claims were retested by hand against the live URLs.
+
+**Key findings:**
+- No two cities share a citywide platform: Go Vocal (Utrecht), Mendix (Rotterdam), OpenStad plus the municipal website (Den Haag), Gebiedonline plus OpenStad (Amsterdam).
+- The neighbourhood layer differs in kind: Gebiedonline cooperatives (Utrecht), a municipal register of separate sites (Den Haag), elected councils with no resident-built network found (Rotterdam).
+- The CBS Wijk- en Buurtkaart through PDOK returns neighbourhoods for all four municipality codes (CC BY 4.0).
+- No G4 body on digital participation found. The nearest is the G4 CIO procurement agreement.
+- The claim that Utrecht has a better engagement model is unsupported as written. The source is a personal observation in a meeting.
+
+**Decision:** Keep Amsterdam as the deep layer and add the other cities as a lighter inventory at `/atlas/g4`. Do not add them to `PLATFORMS`, because the coverage grid and the open-field count assume Amsterdam profiles. Full profiles come after the operators have had a chance to correct the list.
+
+**Corrections to earlier entries:**
+- `/rss` on Gebiedonline networks delivers per-network items, not only on Hallo IJburg. The channel title and link host stay wrong, and items have no `pubDate`. gebiedonline.nl returned 1 item and wijamsterdam.nl 0.
+- The OpenStad figure of about fifty organisations was attributed to a VNG page that does not contain it. VNG now states 43 public organisations and 500+ projects.
+
+**Caveats to re-verify:**
+- Rotterdam coverage is the weakest: many guessed addresses timed out, which proves nothing.
+- Go Vocal's `/web_api/v1` is public but undocumented. Reuse status is unknown.
+- Feed counts are a seven-day calendar window, not a publication count.
+- Items based on search summaries carry `to-validate`.
+
+**Open follow-ups:** Utrecht's 2025 market consultation outcome, the announced Den Haag platform, neighbourhood sites in Leiden, Delft, Zoetermeer, and Westland, and a counterpart per city.
+
+**Source pages updated:** [[G4]] (new), [[Atlas]] (correction added), `/atlas/interop`, `/patterns`.
+
+---
+
 ## 2026-06-02 — Map & geometry sources for Amsterdam
 
 **Question:** What cartographic and geometry sources can render the Uitwijken map — base tiles, administrative boundaries (stadsdeel/wijk/buurt), address/building geometry, and street-level detail? This is the map counterpart to the event-pins dive: [[Open-data]] named the data types as principles, but the base cartography had never been inventoried at API level.

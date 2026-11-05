@@ -185,6 +185,13 @@ export default function AtlasPage() {
             </div>
             <div className="flex flex-wrap gap-2">
               <Link
+                href="/atlas/g4"
+                className="inline-flex items-center gap-1.5 border border-[var(--color-rule)] bg-white px-3 py-1.5 text-[12px] font-semibold text-[var(--color-ink)] hover:border-[var(--color-ink)]"
+              >
+                <T nl="Voorbij Amsterdam" en="Beyond Amsterdam" />
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </Link>
+              <Link
                 href="/atlas/compare"
                 className="inline-flex items-center gap-1.5 border border-[var(--color-rule)] bg-white px-3 py-1.5 text-[12px] font-semibold text-[var(--color-ink)] hover:border-[var(--color-ink)]"
               >

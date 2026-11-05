@@ -91,8 +91,8 @@ const PATTERNS: Pattern[] = [
       en: "Interoperability is the cheapest win — and nowhere arranged",
     },
     observation: {
-      nl: "Getest op 31 augustus 2026: precies één opgevraagd eindpunt levert herbruikbare inhoud — de RSS-agenda van Hallo IJburg. Op gebiedonline.nl en wijamsterdam.nl bestaat datzelfde pad, maar het draagt de titel van IJburg en geeft nul items terug. Verder alleen een sitemapindex hier en daar: geen API, geen iCal, geen export.",
-      en: "Tested on 31 August 2026: exactly one requested endpoint delivers reusable content — Hallo IJburg's RSS calendar. On gebiedonline.nl and wijamsterdam.nl that same path exists but carries IJburg's title and returns zero items. Beyond that only the odd sitemap index: no API, no iCal, no export.",
+      nl: "Getest op 31 augustus 2026: één opgevraagd eindpunt leverde herbruikbare inhoud, de RSS-agenda van Hallo IJburg. Een hertest op 5 november 2026 vond ook eigen items op andere Gebiedonline-netwerken, allemaal onder de titel van IJburg en zonder datumveld. wijamsterdam.nl bleef leeg. Verder alleen een sitemapindex hier en daar: geen API, geen iCal, geen export.",
+      en: "Tested on 31 August 2026: one requested endpoint delivered reusable content, Hallo IJburg's RSS calendar. A retest on 5 November 2026 also found items of their own on other Gebiedonline networks, all under IJburg's title and without a date field. wijamsterdam.nl stayed empty. Beyond that only the odd sitemap index: no API, no iCal, no export.",
     },
     implication: {
       nl: "Drie systemen delen één codebase en wisselen nul gegevens uit. Dat is geen technisch probleem: het eindpunt bestaat al en staat per netwerk verkeerd ingesteld. De goedkoopste winst in dit hele dossier is een configuratiekwestie die niemand ooit heeft gevraagd.",

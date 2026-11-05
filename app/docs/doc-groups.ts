@@ -3,7 +3,10 @@ export type DocGroup = { label: string; items: { slug: string; title: string }[]
 export const DOC_GROUPS: DocGroup[] = [
   {
     label: "Atlas",
-    items: [{ slug: "atlas", title: "Atlas — the reframing" }],
+    items: [
+      { slug: "atlas", title: "Atlas — the reframing" },
+      { slug: "g4", title: "G4" },
+    ],
   },
   {
     label: "Concept",

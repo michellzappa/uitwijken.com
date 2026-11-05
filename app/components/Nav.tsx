@@ -35,6 +35,7 @@ const ATLAS_GROUPS: readonly NavGroup[] = [
       { href: "/atlas", nl: "Verken het ecosysteem", en: "Explore the ecosystem", Icon: MapIcon },
       { href: "/atlas/compare", nl: "Vergelijk platformen", en: "Compare platforms", Icon: Columns3 },
       { href: "/atlas/interop", nl: "Interoperabiliteit", en: "Interoperability", Icon: Network },
+      { href: "/atlas/g4", nl: "G4-verkenning", en: "G4 scan", Icon: MapIcon },
       { href: "/patterns", nl: "Patronen & gaten", en: "Patterns & gaps", Icon: Compass },
       { href: "/atlas/submit", nl: "Voeg toe of corrigeer", en: "Add or correct", Icon: CirclePlus },
     ],
