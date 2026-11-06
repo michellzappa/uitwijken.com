@@ -14,6 +14,26 @@ This is intentionally append-only. When facts change, add a new entry — don't 
 
 ---
 
+## 2026-11-06 — Function view and national routes
+
+**Question:** What does a parallel exploration of the same topic add to the G4 scan?
+
+**Method:** Read a parallel working thread and checked its main claims against sources. The thread itself is model output and is not cited as a source.
+
+**Key findings:**
+- A view by function (participation, initiatives, neighbourhood networks, volunteering) shows the overlap better than a view by platform.
+- Budget data is better than the scan suggested. Zorgzaam010 has a tender maximum of € 185,000 a year, and the Utrecht Initiatievenfonds has € 3 million plus € 900,000.
+- VNG's collectivisation route is real, but digital public space is not among its first four topics.
+- PubHubs and the Digital Commons EDIC were missing from this dossier.
+
+**Decision:** Record the function view as a hypothesis in [[G4]]. Keep savings unclaimed until cost data proves them. Do not adopt a shared engine, automatic communities, or a new register as direction yet.
+
+**Caveats to re-verify:** Rotterdam 2025 figures, DenkMee user count, Gebiedonline community and user counts, the G4 chair, the governance precedents, and PubHubs' current status.
+
+**Source pages updated:** [[G4]].
+
+---
+
 ## 2026-11-05 — G4 scan: Rotterdam, Den Haag, Utrecht and their regions
 
 **Question:** What does the digital public space look like outside Amsterdam, and does the atlas hold up when it moves to the other G4 cities?
