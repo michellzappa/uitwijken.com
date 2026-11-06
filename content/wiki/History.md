@@ -12,5 +12,6 @@ A running record of how the project's framing has shifted and the conversations 
 - [[Meeting-2026-04-16]] — Michell Zappa, Roy Bekhuis (kickoff, original vision docs)
 - [[Meeting-2026-05-22]] — Michell Zappa, Roy Bekhuis
 - [[Meeting-2026-06-01]] — Michell Zappa, Roy Bekhuis
+- [[Meeting-2026-11-06]] — Michell Zappa, Roy Bekhuis
 
 Each meeting links to its Granola transcript as the verbatim record; the wiki page captures decisions, open questions, and anything worth carrying forward.

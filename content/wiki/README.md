@@ -62,7 +62,8 @@ The immediate goal is a proof-of-concept convincing enough for a conversation wi
 | File | What it holds |
 |---|---|
 | [[History]] | How the project's framing has shifted over time, and why the wiki says what it now says |
-| [[Meeting-2026-06-01]] | Latest briefing with Roy Bekhuis — events discovery, services, public-only interactions |
+| [[Meeting-2026-11-06]] | Latest meeting with Roy Bekhuis: a G4 portfolio through prefilled surveys |
+| [[Meeting-2026-06-01]] | Briefing with Roy Bekhuis — events discovery, services, public-only interactions |
 | [[Meeting-2026-05-22]] | Briefing that widened scope from a buurt network to a location × theme civic layer |
 | [[Meeting-2026-04-16]] | Kickoff: the original buurt-scoped, fediverse-native vision |
 

@@ -51,6 +51,7 @@ export const DOC_GROUPS: DocGroup[] = [
       { slug: "meeting-2026-04-16", title: "Meeting — 2026-04-16" },
       { slug: "meeting-2026-05-22", title: "Meeting — 2026-05-22" },
       { slug: "meeting-2026-06-01", title: "Meeting — 2026-06-01" },
+      { slug: "meeting-2026-11-06", title: "Meeting — 2026-11-06" },
     ],
   },
 ];
