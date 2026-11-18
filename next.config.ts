@@ -1,3 +1,5 @@
 import type { NextConfig } from "next";
-const config: NextConfig = {};
+
+// Static export: Cloudflare serves ./out through worker/index.js.
+const config: NextConfig = { output: "export" };
 export default config;
