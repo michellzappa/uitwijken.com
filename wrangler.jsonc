@@ -12,5 +12,9 @@
     "not_found_handling": "404-page"
   },
   "workers_dev": true,
+  "routes": [
+    { "pattern": "www.uitwijken.com", "custom_domain": true },
+    { "pattern": "uitwijken.com", "custom_domain": true }
+  ],
   "observability": { "enabled": true }
 }
