@@ -33,6 +33,16 @@ pnpm dev
 
 App runs at [http://localhost:3777](http://localhost:3777).
 
+## Deploy
+
+www.uitwijken.com is a static export on the Cloudflare Worker `uitwijken` (account Centaur-Labs). There is no auto-deploy: a push to `main` does not change the live site. Deploy by hand:
+
+```bash
+./node_modules/.bin/next build && npx wrangler@4 deploy
+```
+
+uitwijken.com redirects (308) to www. The Vercel project `uitwijken` serves no domain.
+
 ## Related
 
 Concept notes live in `content/wiki/` and are browsable at `/docs`.
